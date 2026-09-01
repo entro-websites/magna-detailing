@@ -218,49 +218,88 @@
   /* HERO */
   .hero{
     position:relative;
+    padding:0;
+    background:transparent;
+  }
+  .hero-media{
+    position:relative;
+    margin:16px;
+    border-radius:24px;
+    overflow:hidden;
     min-height:88vh;
     display:flex;
     align-items:center;
-    padding-top:80px;
-    padding-bottom:80px;
-    background:#111 url('assets/m_1.webp') center 30% / cover no-repeat;
+    justify-content:center;
+    background:#111 url('assets/m_1.webp') center 35% / cover no-repeat;
   }
-  .hero::before{
+  .hero-media::before{
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(100deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.72) 42%, rgba(20,10,11,0.4) 75%);
+    background:linear-gradient(180deg, rgba(10,10,10,0.44) 0%, rgba(10,10,10,0.16) 28%, rgba(10,10,10,0.6) 72%, rgba(10,10,10,0.82) 100%);
   }
   .hero-inner{
     position:relative;
     z-index:2;
-    max-width:640px;
+    max-width:880px;
+    text-align:center;
+    padding-top:96px;
+    padding-bottom:96px;
   }
-  .hero-eyebrow{
-    display:inline-block;
+  .hero-proof{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .hero-avatars{
+    display:flex;
+    align-items:center;
+  }
+  .hero-avatars span{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,0.92);
+    margin-right:-12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     font-family:'Montserrat',sans-serif;
     font-weight:700;
-    font-size:0.8rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
+    font-size:0.72rem;
+    letter-spacing:0.02em;
     color:#fff;
-    background:rgba(220,53,69,0.9);
-    padding:8px 16px;
-    border-radius:var(--radius-btn);
-    margin-bottom:24px;
+    background:linear-gradient(140deg,#4c4c4c,#1c1c1c);
+  }
+  .hero-avatars span:nth-child(2){background:linear-gradient(140deg,#8d2b34,#4a1119);}
+  .hero-avatars span:nth-child(3){background:linear-gradient(140deg,#3d4a55,#1a2026);}
+  .hero-avatars span:nth-child(4){background:linear-gradient(140deg,#6b5140,#2b1f18);}
+  .hero-avatars span:nth-child(5){background:linear-gradient(140deg,#dc3545,#7d1723);}
+  .hero-avatars span:last-child{margin-right:0;}
+  .hero-proof-text{
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:0.9rem;
+    color:rgba(255,255,255,0.92);
   }
   .hero h1{
     color:#fff;
-    font-size:clamp(2.4rem,5.5vw,3.8rem);
+    font-size:clamp(2.4rem,6vw,4.2rem);
     font-weight:800;
-    margin-bottom:22px;
+    letter-spacing:-0.02em;
+    margin-bottom:20px;
   }
-  .hero h1 span{color:var(--accent);}
   .hero p{
-    color:rgba(255,255,255,0.85);
+    color:rgba(255,255,255,0.86);
     font-size:1.1rem;
-    margin-bottom:36px;
-    max-width:52ch;
+    margin:0 auto 36px;
+    max-width:56ch;
+  }
+  .hero .btn-light{
+    border-radius:999px;
+    padding:16px 32px;
+    color:var(--text);
   }
 
   /* BOL UVOD */
@@ -657,8 +696,12 @@
   @media (max-width:768px){
     section{padding-top:64px;padding-bottom:64px;}
     .wrap{padding-left:20px;padding-right:20px;}
-    .hero{min-height:auto;padding-top:64px;padding-bottom:64px;}
-    .hero h1{font-size:clamp(2rem,8vw,2.6rem);}
+    .hero-media{min-height:auto;margin:12px;border-radius:20px;}
+    .hero-inner{padding-top:64px;padding-bottom:64px;}
+    .hero h1{font-size:clamp(2rem,8vw,2.8rem);}
+    .hero-proof{gap:8px;margin-bottom:20px;}
+    .hero-proof-text{font-size:0.8rem;}
+    .hero-avatars span{width:32px;height:32px;font-size:0.66rem;}
     .services-grid{grid-template-columns:1fr;}
     .brands-row{grid-template-columns:1fr;}
     .stats-row{grid-template-columns:1fr;}
@@ -703,11 +746,18 @@
 </div>
 
 <section class="hero">
-  <div class="wrap hero-inner">
-    <span class="hero-eyebrow">Beograd · Zvanični distributer Koch-Chemie, Colourlock i Tornador</span>
-    <h1>Vrati autu sjaj kakav je imao prvog dana. <span>Profesionalno, ne amaterski.</span></h1>
-    <p>Premium pranje, poliranje, keramička zaštita i PPF folija za automobile i motocikle. Radimo precizno, jedan po jedan detalj, dok ne budeš zadovoljan rezultatom.</p>
-    <a href="#kontakt" class="btn btn-primary">Zakaži termin za detailing</a>
+  <div class="hero-media">
+    <div class="wrap hero-inner">
+      <div class="hero-proof">
+        <div class="hero-avatars" aria-hidden="true">
+          <span>MJ</span><span>AS</span><span>NP</span><span>DV</span><span>IL</span>
+        </div>
+        <span class="hero-proof-text">5.0 prosečna ocena klijenata</span>
+      </div>
+      <h1>Vrati autu sjaj kakav je imao prvog dana</h1>
+      <p>Precizan detailing, poliranje i dugotrajna zaštita laka u Beogradu.</p>
+      <a href="#usluge" class="btn btn-light">Pogledaj usluge</a>
+    </div>
   </div>
 </section>
 
