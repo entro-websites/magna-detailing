@@ -745,21 +745,58 @@
   .how-shot img{width:100%;height:100%;object-fit:cover;}
 
   /* SERVICES */
-  .services-grid{
+  .svc-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:24px;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
   }
-  .service-card{
+  .svc{
     background:#fff;
-    border:1px solid rgba(26,26,26,0.08);
+    border:1px solid rgba(26,26,26,0.1);
     border-radius:var(--radius-card);
-    padding:34px 26px;
-    transition:box-shadow 0.25s ease, transform 0.25s ease;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
-  .service-card:hover{
-    box-shadow:0 20px 40px -20px rgba(26,26,26,0.18);
+  .svc:hover{
     transform:translateY(-4px);
+    border-color:rgba(220,53,69,0.45);
+    box-shadow:0 20px 40px -20px rgba(26,26,26,0.18);
+  }
+  .svc-shot{
+    height:180px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    background:linear-gradient(150deg,#3a3a3a 0%,#181818 60%,#221619 100%);
+    color:rgba(255,255,255,0.45);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  .svc-shot img{width:100%;height:100%;object-fit:cover;}
+  .svc-body{
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+  }
+  .svc-body h3{font-size:1.1rem;}
+  .svc-body p{font-size:14.5px;}
+  .svc-price{
+    margin-top:auto;
+    padding-top:14px;
+    border-top:1px solid rgba(26,26,26,0.08);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    color:var(--accent);
   }
   .icon-box{
     width:52px;
@@ -772,8 +809,6 @@
     margin-bottom:20px;
   }
   .icon-box svg{width:26px;height:26px;stroke:var(--accent);}
-  .service-card h3{font-size:1.1rem;margin-bottom:10px;}
-  .service-card p{font-size:0.94rem;}
 
   /* PRICING - PAKETI */
   .pkg-grid{
@@ -886,26 +921,6 @@
     background:#fff;
   }
 
-  /* BRANDS */
-  .brands-row{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
-  }
-  .brand-card{
-    background:#fff;
-    border:1px solid rgba(26,26,26,0.08);
-    border-radius:var(--radius-card);
-    padding:36px 30px;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:18px;
-  }
-  .brand-card img{height:36px;width:auto;object-fit:contain;}
-  .brand-card p{font-size:0.9rem;text-align:center;}
-
   /* SCHOOL */
   .school{
     background:linear-gradient(135deg,#171213 0%, #241417 60%, #2c1216 100%);
@@ -959,52 +974,6 @@
     font-size:0.95rem;
   }
   .school-list li svg{width:18px;height:18px;stroke:var(--accent);flex-shrink:0;margin-top:2px;}
-
-  /* ABOUT */
-  .about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-    align-items:center;
-  }
-  .placeholder{
-    background:#e4e2e2;
-    border:1px dashed rgba(26,26,26,0.25);
-    border-radius:var(--radius-card);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:var(--text-faint);
-    font-family:'Montserrat',sans-serif;
-    font-weight:700;
-    font-size:0.85rem;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    padding:20px;
-    min-height:340px;
-  }
-  .about-text h2{margin-bottom:18px;}
-  .about-text p{margin-bottom:16px;}
-  .about-badges{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-    margin-top:28px;
-  }
-  .badge{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    background:var(--accent-soft);
-    color:var(--accent-dark);
-    font-family:'Montserrat',sans-serif;
-    font-weight:700;
-    font-size:0.82rem;
-    padding:10px 16px;
-    border-radius:999px;
-  }
-  .badge svg{width:16px;height:16px;stroke:var(--accent-dark);}
 
   /* TESTIMONIALS */
   .stats-row{
@@ -1083,11 +1052,41 @@
     color:var(--text-faint);
     margin-top:4px;
   }
+  .tst-nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    margin-top:24px;
+  }
+  .tst-arrow{
+    width:32px;
+    height:32px;
+    padding:0;
+    border:1px solid rgba(26,26,26,0.14);
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .tst-arrow svg{
+    width:14px;
+    height:14px;
+    stroke:var(--text);
+    fill:none;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+  .tst-arrow:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .tst-arrow:hover svg{stroke:var(--accent);}
   .tst-dots{
     display:flex;
     justify-content:center;
     gap:8px;
-    margin-top:24px;
   }
   .tst-dots button{
     width:8px;
@@ -1393,44 +1392,6 @@
     color:var(--text);
   }
 
-  /* CTA CLOSE */
-  .cta-close{
-    background:var(--accent);
-    border-radius:24px;
-    padding:64px 48px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .cta-close::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:radial-gradient(circle at 30% 20%, rgba(255,255,255,0.16) 0%, transparent 55%);
-  }
-  .cta-close h2{
-    color:#fff;
-    font-size:clamp(1.8rem,3.4vw,2.5rem);
-    margin-bottom:16px;
-    position:relative;
-    z-index:2;
-  }
-  .cta-close p{
-    color:rgba(255,255,255,0.9);
-    max-width:52ch;
-    margin:0 auto 32px;
-    position:relative;
-    z-index:2;
-  }
-  .cta-close .btn-row{
-    display:flex;
-    gap:16px;
-    justify-content:center;
-    flex-wrap:wrap;
-    position:relative;
-    z-index:2;
-  }
-
   /* FOOTER */
   footer{
     background:#141414;
@@ -1523,12 +1484,10 @@
     .how-steps{grid-template-columns:1fr;gap:36px;}
     .how-step{padding-left:0;padding-right:0;}
     .how-step + .how-step::before{display:none;}
-    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .svc-grid{grid-template-columns:repeat(2,1fr);}
     .pkg-grid{grid-template-columns:1fr;}
-    .brands-row{grid-template-columns:1fr;}
     .school-grid{grid-template-columns:1fr;gap:36px;}
     .school{padding:44px 28px;}
-    .about-grid{grid-template-columns:1fr;}
     .stats-row{grid-template-columns:1fr 1fr;}
     .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
   }
@@ -1554,12 +1513,9 @@
     .ba-range::-webkit-slider-thumb{height:264px;}
     .ba-range::-moz-range-thumb{height:264px;}
     .ba-body{padding:16px 20px 20px;}
-    .services-grid{grid-template-columns:1fr;}
-    .brands-row{grid-template-columns:1fr;}
+    .svc-grid{grid-template-columns:1fr;}
     .stats-row{grid-template-columns:1fr;}
     .tst-card{padding:40px 20px;}
-    .cta-close{padding:44px 24px;}
-    .cta-close .btn-row{flex-direction:column;align-items:stretch;}
     .school{padding:36px 20px;}
     .footer-grid{grid-template-columns:1fr;}
   }
@@ -1575,12 +1531,10 @@
     <nav class="nav-links">
       <a href="#usluge">Usluge</a>
       <a href="#cenovnik">Cenovnik</a>
-      <a href="#brendovi">Brendovi</a>
       <a href="#skola">Škola detailinga</a>
-      <a href="#o-nama">O nama</a>
     </nav>
     <div class="nav-cta">
-      <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+      <a href="#kviz" class="btn btn-primary">Zakaži termin</a>
     </div>
     <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni">
       <span></span><span></span><span></span>
@@ -1591,10 +1545,8 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#usluge">Usluge</a>
   <a href="#cenovnik">Cenovnik</a>
-  <a href="#brendovi">Brendovi</a>
   <a href="#skola">Škola detailinga</a>
-  <a href="#o-nama">O nama</a>
-  <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+  <a href="#kviz" class="btn btn-primary">Zakaži termin</a>
 </div>
 
 <section class="hero" id="top">
@@ -1605,7 +1557,7 @@
         <h1>Vrati autu sjaj kakav je imao prvog dana</h1>
         <p class="lead">Peremo, poliramo i štitimo lak ručno, u zatvorenom studiju bez prašine sa ulice. Radimo precizno, jedan po jedan detalj, dok ne budeš zadovoljan rezultatom.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#kontakt">Zakaži termin</a>
+          <a class="btn btn-primary" href="#kviz">Zakaži termin</a>
           <a class="btn btn-outline" href="#usluge">Pogledaj usluge</a>
         </div>
         <div class="hero-meta">
@@ -1836,39 +1788,59 @@
 <section id="usluge">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Usluge</span>
-      <h2>Sve što tvom vozilu treba, na jednom mestu</h2>
-      <p>Od redovnog pranja do dugoročne zaštite laka - biraš koliko duboko ideš.</p>
+      <span class="eyebrow">Šta radimo</span>
+      <h2>Usluge na tvom vozilu</h2>
+      <p>Svaka usluga ide zasebno ili kao deo paketa. Cene su početne, tačnu kažemo tek kad vidimo lak.</p>
     </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="icon-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.8 4-4 0-2.5-2.9-6.3-3.6-7.2a.5.5 0 0 0-.8 0C6 6 3 9.8 3 12.3c0 2.2 1.8 4 4 4Z"></path><path d="M17 21c2.2 0 4-1.8 4-4 0-2.5-2.9-6.3-3.6-7.2a.5.5 0 0 0-.8 0C16 11 13 14.8 13 17.3c0 2.2 1.8 3.7 4 3.7Z"></path></svg>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <div class="svc-shot">Fotografija pranja sa penom</div>
+        <div class="svc-body">
+          <h3>Premium pranje</h3>
+          <p>Ručno pranje dvema kofama, dekontaminacija laka i zaštita guma i felni - bez mikroogrebotina koje ostavljaju automatske perionice.</p>
+          <div class="svc-price">od 3.000 din</div>
         </div>
-        <h3>Premium pranje</h3>
-        <p>Ručno pranje dvema kofama, dekontaminacija laka i zaštita guma i felni - bez mikroogrebotina koje ostavljaju automatske perionice.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="icon-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18"></path><path d="M5 17V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8"></path><path d="M7 17v3"></path><path d="M17 17v3"></path><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path></svg>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-shot">Fotografija enterijera posle čišćenja</div>
+        <div class="svc-body">
+          <h3>Detailing enterijera</h3>
+          <p>Dubinsko usisavanje, pranje tapacirunga, tretman kože Colourlock proizvodima i dezinfekcija ventilacionog sistema.</p>
+          <div class="svc-price">od 6.000 din</div>
         </div>
-        <h3>Detailing enterijera</h3>
-        <p>Dubinsko usisavanje, pranje tapacirunga, tretman kože Colourlock proizvodima i dezinfekcija ventilacionog sistema.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="icon-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2Z"></path></svg>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-shot">Fotografija detailinga motocikla</div>
+        <div class="svc-body">
+          <h3>Detailing motocikala</h3>
+          <p>Pranje, poliranje hroma i lakiranih površina i zaštita motora od korozije i UV zračenja tokom sezone.</p>
+          <div class="svc-price">od 8.000 din</div>
         </div>
-        <h3>Poliranje i zaštita</h3>
-        <p>Korekcija laka, keramički premaz i PPF folija - biraš nivo zaštite prema tome koliko dugo planiraš da voziš auto.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="icon-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="18.5" cy="17.5" r="3.5"></circle><path d="M15 6l-3 6h6l-2 5.5"></path><path d="M9 6h4"></path><path d="M5.5 17.5L9 12l2 3"></path></svg>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-shot">Fotografija poliranja laka</div>
+        <div class="svc-body">
+          <h3>Poliranje i keramička zaštita</h3>
+          <p>Korekcija laka u jednoj ili dve faze, pa keramički premaz Koch-Chemie koji lak štiti do 24 meseca.</p>
+          <div class="svc-price">od 35.000 din</div>
         </div>
-        <h3>Detailing motocikala</h3>
-        <p>Pranje, poliranje hroma i lakiranih površina i zaštita motora od korozije i UV zračenja tokom sezone.</p>
-      </div>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-shot">Fotografija nanošenja PPF folije</div>
+        <div class="svc-body">
+          <h3>PPF folija</h3>
+          <p>Zaštita haube, branika i retrovizora ili celog vozila. Cena zavisi od modela i pokrivenosti.</p>
+          <div class="svc-price">Na upit</div>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <div class="svc-shot">Fotografija farova pre i posle</div>
+        <div class="svc-body">
+          <h3>Obnova farova</h3>
+          <p>Skidanje žutila i zamućenja sa plastike, pa zaštitni sloj preko. Svetlo noću ide dalje, a auto deluje mlađe.</p>
+          <div class="svc-price">Na upit</div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1930,29 +1902,6 @@
   </div>
 </section>
 
-<section id="brendovi">
-  <div class="wrap">
-    <div class="section-head center">
-      <h2>Radimo isključivo sa proverenim brendovima</h2>
-      <p>Nema improvizacije. Koristimo i prodajemo profesionalnu hemiju i opremu koju znamo napamet.</p>
-    </div>
-    <div class="brands-row">
-      <div class="brand-card reveal">
-        <img src="assets/kochchemie.webp" alt="Koch-Chemie logo">
-        <p>Nemačka profesionalna hemija za pranje, poliranje i keramičku zaštitu.</p>
-      </div>
-      <div class="brand-card reveal">
-        <img src="assets/colourlock.webp" alt="Colourlock logo">
-        <p>Specijalizovani proizvodi za negu i restauraciju kože u enterijeru.</p>
-      </div>
-      <div class="brand-card reveal">
-        <img src="assets/t.webp" alt="Tornador logo">
-        <p>Pneumatski alati za dubinsko čišćenje enterijera i motornog prostora.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="skola" class="section-off">
   <div class="wrap">
     <div class="school">
@@ -1980,24 +1929,8 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Sertifikat po završetku kursa</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Grupe malog broja polaznika, direktan rad sa instruktorom</li>
           </ul>
-          <a href="#kontakt" class="btn btn-primary">Prijavi se za kurs detailinga</a>
+          <a href="#kviz" class="btn btn-primary">Prijavi se za kurs detailinga</a>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="o-nama">
-  <div class="wrap about-grid">
-    <div class="placeholder reveal" role="img" aria-label="Fotografija enterijera studija MAGNA">FOTOGRAFIJA STUDIJA</div>
-    <div class="about-text reveal">
-      <h2>Studio za ljude kojima je stalo do vozila</h2>
-      <p>MAGNA Auto Detailing Studio radi u Beogradu i bavi se isključivo detailingom automobila i motocikala. Nismo autoperionica koja usput nudi poliranje - ovo nam je jedini posao.</p>
-      <p>Kao zvanični distributer Koch-Chemie, Colourlock i Tornador brendova, koristimo istu hemiju i opremu koju preporučujemo klijentima za kućnu negu. Kroz MAGNA Detailing School prenosimo znanje dalje, drugim ljudima koji žele da rade ovaj posao profesionalno.</p>
-      <div class="about-badges">
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Precizno</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Pouzdano</span>
-        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Profesionalno</span>
       </div>
     </div>
   </div>
@@ -2051,10 +1984,18 @@
           <div class="tst-role">Vlasnik Yamaha MT-07</div>
         </div>
       </div>
-      <div class="tst-dots">
-        <button type="button" class="is-active" data-tst="0" aria-label="Utisak 1"></button>
-        <button type="button" class="" data-tst="1" aria-label="Utisak 2"></button>
-        <button type="button" class="" data-tst="2" aria-label="Utisak 3"></button>
+      <div class="tst-nav">
+        <button type="button" class="tst-arrow" id="tstPrev" aria-label="Prethodni utisak">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+        </button>
+        <div class="tst-dots">
+          <button type="button" class="is-active" data-tst="0" aria-label="Utisak 1"></button>
+          <button type="button" data-tst="1" aria-label="Utisak 2"></button>
+          <button type="button" data-tst="2" aria-label="Utisak 3"></button>
+        </div>
+        <button type="button" class="tst-arrow" id="tstNext" aria-label="Sledeći utisak">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -2146,7 +2087,7 @@
     <div class="faq-head reveal">
       <h2>Nisi našao ono što<br>te zanima?</h2>
       <p>Pošalji nam pitanje i javljamo se u najkraćem roku.</p>
-      <a href="#kontakt" class="btn btn-dark">Postavi pitanje</a>
+      <a href="#kviz" class="btn btn-dark">Postavi pitanje</a>
     </div>
     <div class="faq-grid">
       <details class="faq-item reveal">
@@ -2178,19 +2119,7 @@
       <div class="cta-banner-inner">
         <h2>Besplatna procena vozila</h2>
         <p>Brza i jasna cena, bez obaveze.</p>
-        <a href="#kontakt" class="btn btn-light">Postavi pitanje</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="kontakt">
-  <div class="wrap">
-    <div class="cta-close reveal">
-      <p>Javi nam se sa modelom vozila i onim što te najviše smeta na njemu. Za školu, javi se za sledeći slobodan termin grupe.</p>
-      <div class="btn-row">
-        <a href="#" class="btn btn-light">Zakaži termin za detailing</a>
-        <a href="#" class="btn btn-outline" style="border-color:#fff;color:#fff;">Prijavi se za kurs u školi</a>
+        <a href="#kviz" class="btn btn-light">Postavi pitanje</a>
       </div>
     </div>
   </div>
@@ -2211,7 +2140,7 @@
           <a href="#rezultati">Pre i posle</a>
           <a href="#cenovnik">Cenovnik</a>
           <a href="#pitanja">Česta pitanja</a>
-          <a href="#kontakt">Kontakt</a>
+          <a href="#kviz">Kontakt</a>
         </div>
       </div>
       <div>
@@ -2274,13 +2203,15 @@
   if (tstCard) {
     const slides = tstCard.querySelectorAll('.tst-slide');
     const dots = tstCard.querySelectorAll('.tst-dots button');
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const i = Number(dot.dataset.tst);
-        slides.forEach((sl, n) => sl.classList.toggle('is-active', n === i));
-        dots.forEach((d, n) => d.classList.toggle('is-active', n === i));
-      });
-    });
+    let tstAt = 0;
+    const tstGo = (i) => {
+      tstAt = (i + slides.length) % slides.length;
+      slides.forEach((sl, n) => sl.classList.toggle('is-active', n === tstAt));
+      dots.forEach((d, n) => d.classList.toggle('is-active', n === tstAt));
+    };
+    dots.forEach(dot => dot.addEventListener('click', () => tstGo(Number(dot.dataset.tst))));
+    document.getElementById('tstPrev').addEventListener('click', () => tstGo(tstAt - 1));
+    document.getElementById('tstNext').addEventListener('click', () => tstGo(tstAt + 1));
   }
 
   // Kviz - procena za minut
