@@ -218,88 +218,106 @@
   /* HERO */
   .hero{
     position:relative;
-    padding:0;
-    background:transparent;
+    padding-top:84px;
+    padding-bottom:0;
   }
-  .hero-media{
-    position:relative;
-    margin:16px;
-    border-radius:24px;
-    overflow:hidden;
-    min-height:88vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#111 url('assets/m_1.webp') center 35% / cover no-repeat;
-  }
-  .hero-media::before{
+  .hero::after{
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(180deg, rgba(10,10,10,0.44) 0%, rgba(10,10,10,0.16) 28%, rgba(10,10,10,0.6) 72%, rgba(10,10,10,0.82) 100%);
+    pointer-events:none;
+    z-index:-1;
+    background:radial-gradient(760px 420px at 78% 8%, rgba(220,53,69,0.10), transparent 70%);
   }
-  .hero-inner{
-    position:relative;
-    z-index:2;
-    max-width:880px;
-    text-align:center;
-    padding-top:96px;
-    padding-bottom:96px;
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
   }
-  .hero-proof{
+  .hero .eyebrow{
     display:inline-flex;
     align-items:center;
-    gap:12px;
-    margin-bottom:28px;
+    gap:9px;
+    letter-spacing:0.16em;
+    margin-bottom:18px;
   }
-  .hero-avatars{
-    display:flex;
-    align-items:center;
-  }
-  .hero-avatars span{
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    border:2px solid rgba(255,255,255,0.92);
-    margin-right:-12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Montserrat',sans-serif;
-    font-weight:700;
-    font-size:0.72rem;
-    letter-spacing:0.02em;
-    color:#fff;
-    background:linear-gradient(140deg,#4c4c4c,#1c1c1c);
-  }
-  .hero-avatars span:nth-child(2){background:linear-gradient(140deg,#8d2b34,#4a1119);}
-  .hero-avatars span:nth-child(3){background:linear-gradient(140deg,#3d4a55,#1a2026);}
-  .hero-avatars span:nth-child(4){background:linear-gradient(140deg,#6b5140,#2b1f18);}
-  .hero-avatars span:nth-child(5){background:linear-gradient(140deg,#dc3545,#7d1723);}
-  .hero-avatars span:last-child{margin-right:0;}
-  .hero-proof-text{
-    font-family:'Montserrat',sans-serif;
-    font-weight:600;
-    font-size:0.9rem;
-    color:rgba(255,255,255,0.92);
+  .hero .eyebrow::before{
+    content:"";
+    display:block;
+    width:22px;
+    height:1px;
+    background:var(--accent);
   }
   .hero h1{
-    color:#fff;
-    font-size:clamp(2.4rem,6vw,4.2rem);
-    font-weight:800;
+    font-size:clamp(2.4rem,5.2vw,4.2rem);
+    line-height:1.05;
     letter-spacing:-0.02em;
-    margin-bottom:20px;
   }
-  .hero p{
-    color:rgba(255,255,255,0.86);
-    font-size:1.1rem;
-    margin:0 auto 36px;
-    max-width:56ch;
+  .hero .lead{
+    margin-top:24px;
+    max-width:62ch;
+    font-size:1.02rem;
   }
-  .hero .btn-light{
-    border-radius:999px;
-    padding:16px 32px;
+  .hero-cta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:34px;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:28px;
+    margin-top:44px;
+    padding-top:26px;
+    border-top:1px solid rgba(26,26,26,0.08);
+  }
+  .hero-meta div span{
+    display:block;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
     color:var(--text);
+  }
+  .hero-meta div small{
+    display:block;
+    color:var(--text-faint);
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  .hero-shot{position:relative;}
+  .hero-shot img{
+    width:100%;
+    height:460px;
+    object-fit:cover;
+    border-radius:var(--radius-card);
+  }
+  .hero-badge{
+    position:absolute;
+    left:-18px;
+    bottom:26px;
+    z-index:2;
+    background:#fff;
+    border:1px solid rgba(26,26,26,0.12);
+    border-radius:var(--radius-btn);
+    box-shadow:0 12px 32px -16px rgba(26,26,26,0.4);
+    padding:16px 20px;
+    max-width:230px;
+  }
+  .hero-badge strong{
+    display:block;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    margin-bottom:4px;
+  }
+  .hero-badge span{
+    display:block;
+    font-size:13px;
+    color:var(--text-muted);
+    line-height:1.5;
   }
 
   /* ZASTO MI */
@@ -358,7 +376,7 @@
   .marquee-track{
     display:flex;
     width:max-content;
-    animation:marquee-scroll 300s linear infinite;
+    animation:marquee-scroll 60s linear infinite;
   }
   .marquee:hover .marquee-track{animation-play-state:paused;}
   @keyframes marquee-scroll{
@@ -385,8 +403,6 @@
     letter-spacing:0.08em;
     text-transform:uppercase;
   }
-  .marquee-card.narrow{width:288px;}
-  .marquee-card.wide{width:464px;}
   .marquee-card img{width:100%;height:100%;object-fit:cover;}
 
   @media (prefers-reduced-motion:reduce){
@@ -426,6 +442,7 @@
     grid-template-columns:repeat(2,1fr);
     gap:24px;
   }
+  .ba-card-wide{margin-top:24px;}
   .ba-card{
     background:#fff;
     border:1px solid rgba(26,26,26,0.12);
@@ -905,6 +922,9 @@
   @media (max-width:991px){
     .nav-links, .nav-cta{display:none;}
     .hamburger{display:flex;}
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .hero-shot img{height:340px;}
+    .hero-badge{left:auto;right:16px;bottom:16px;}
     .why-grid{grid-template-columns:1fr;gap:40px;margin-bottom:56px;}
     .why-head p{max-width:52ch;}
     .ba-grid{grid-template-columns:1fr;}
@@ -922,18 +942,14 @@
   @media (max-width:768px){
     section{padding-top:64px;padding-bottom:64px;}
     .wrap{padding-left:20px;padding-right:20px;}
-    .hero-media{min-height:auto;margin:12px;border-radius:20px;}
-    .hero-inner{padding-top:64px;padding-bottom:64px;}
+    .hero{padding-top:56px;}
     .hero h1{font-size:clamp(2rem,8vw,2.8rem);}
-    .hero-proof{gap:8px;margin-bottom:20px;}
-    .hero-proof-text{font-size:0.8rem;}
-    .hero-avatars span{width:32px;height:32px;font-size:0.66rem;}
+    .hero-meta{gap:20px;}
+    .hero-badge{position:static;margin-top:14px;max-width:none;}
     .why-features{grid-template-columns:1fr;gap:32px;}
     .why-feature p{max-width:52ch;}
     .marquee{padding-bottom:64px;}
     .marquee-card{width:264px;height:200px;margin-right:16px;}
-    .marquee-card.narrow{width:200px;}
-    .marquee-card.wide{width:320px;}
     .ba-media{height:264px;}
     .ba-range::-webkit-slider-thumb{height:264px;}
     .ba-range::-moz-range-thumb{height:264px;}
@@ -982,17 +998,29 @@
 </div>
 
 <section class="hero">
-  <div class="hero-media">
-    <div class="wrap hero-inner">
-      <div class="hero-proof">
-        <div class="hero-avatars" aria-hidden="true">
-          <span>MJ</span><span>AS</span><span>NP</span><span>DV</span><span>IL</span>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Beograd &middot; jedan auto po terminu</span>
+        <h1>Vrati autu sjaj kakav je imao prvog dana</h1>
+        <p class="lead">Peremo, poliramo i štitimo lak ručno, u zatvorenom studiju bez prašine sa ulice. Radimo precizno, jedan po jedan detalj, dok ne budeš zadovoljan rezultatom.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#kontakt">Zakaži termin</a>
+          <a class="btn btn-outline" href="#usluge">Pogledaj usluge</a>
         </div>
-        <span class="hero-proof-text">5.0 prosečna ocena klijenata</span>
+        <div class="hero-meta">
+          <div><span>5.0</span><small>Prosečna ocena recenzija</small></div>
+          <div><span>Od 2020.</span><small>MAGNA Detailing School</small></div>
+          <div><span>250+</span><small>Obučenih polaznika</small></div>
+        </div>
       </div>
-      <h1>Vrati autu sjaj kakav je imao prvog dana</h1>
-      <p>Precizan detailing, poliranje i dugotrajna zaštita laka u Beogradu.</p>
-      <a href="#usluge" class="btn btn-light">Pogledaj usluge</a>
+      <div class="hero-shot">
+        <img src="assets/m_1.webp" alt="Detailing vozila u studiju MAGNA">
+        <div class="hero-badge">
+          <strong>Zvanična hemija</strong>
+          <span>Koch-Chemie, Colourlock i Tornador - ista hemija koju koristimo i preporučujemo.</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1036,22 +1064,22 @@
   </div>
   <div class="marquee">
     <div class="marquee-track">
-      <div class="marquee-card narrow">Fotografija 01</div>
+      <div class="marquee-card">Fotografija 01</div>
       <div class="marquee-card">Fotografija 02</div>
-      <div class="marquee-card wide">Fotografija 03</div>
+      <div class="marquee-card">Fotografija 03</div>
       <div class="marquee-card">Fotografija 04</div>
-      <div class="marquee-card narrow">Fotografija 05</div>
-      <div class="marquee-card wide">Fotografija 06</div>
+      <div class="marquee-card">Fotografija 05</div>
+      <div class="marquee-card">Fotografija 06</div>
       <div class="marquee-card">Fotografija 07</div>
-      <div class="marquee-card narrow">Fotografija 08</div>
-      <div class="marquee-card narrow" aria-hidden="true">Fotografija 01</div>
+      <div class="marquee-card">Fotografija 08</div>
+      <div class="marquee-card" aria-hidden="true">Fotografija 01</div>
       <div class="marquee-card" aria-hidden="true">Fotografija 02</div>
-      <div class="marquee-card wide" aria-hidden="true">Fotografija 03</div>
+      <div class="marquee-card" aria-hidden="true">Fotografija 03</div>
       <div class="marquee-card" aria-hidden="true">Fotografija 04</div>
-      <div class="marquee-card narrow" aria-hidden="true">Fotografija 05</div>
-      <div class="marquee-card wide" aria-hidden="true">Fotografija 06</div>
+      <div class="marquee-card" aria-hidden="true">Fotografija 05</div>
+      <div class="marquee-card" aria-hidden="true">Fotografija 06</div>
       <div class="marquee-card" aria-hidden="true">Fotografija 07</div>
-      <div class="marquee-card narrow" aria-hidden="true">Fotografija 08</div>
+      <div class="marquee-card" aria-hidden="true">Fotografija 08</div>
     </div>
   </div>
 </section>
@@ -1097,6 +1125,23 @@
           <h3>Obnova farova</h3>
           <p>Zamućenje skinuto, farovi ponovo bistri.</p>
         </div>
+      </div>
+    </div>
+    <div class="ba-card ba-card-wide reveal">
+      <div class="ba-media">
+        <div class="ba-layer ba-before">Fotografija pre</div>
+        <div class="ba-layer ba-after">Fotografija posle</div>
+        <span class="ba-tag ba-tag-before">Pre</span>
+        <span class="ba-tag ba-tag-after">Posle</span>
+        <span class="ba-divider" aria-hidden="true"></span>
+        <span class="ba-handle" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4"></path><path d="M16 8l4 4-4 4"></path><path d="M4 12h16"></path></svg>
+        </span>
+        <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="Prevuci da uporediš pre i posle - Keramička zaštita">
+      </div>
+      <div class="ba-body">
+        <h3>Keramička zaštita</h3>
+        <p>Lak zaštićen, voda se skida sama.</p>
       </div>
     </div>
   </div>
