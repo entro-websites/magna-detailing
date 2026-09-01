@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAGNA Auto Detailing Studio | Detailing automobila i motocikala Beograd</title>
+<meta name="description" content="MAGNA Auto Detailing Studio - premium pranje, poliranje, keramička zaštita, PPF folija i detailing motocikala u Beogradu. Zvanični distributer Koch-Chemie, Colourlock i Tornador. Sopstvena škola detailinga.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#dc3545;
+    --accent-dark:#a5202f;
+    --accent-darker:#7d1723;
+    --accent-soft:#fdecee;
+    --accent-glow:rgba(220,53,69,0.28);
+
+    --text:#1a1a1a;
+    --text-muted:rgba(26,26,26,0.68);
+    --text-faint:rgba(26,26,26,0.46);
+
+    --bg:#ffffff;
+    --bg-off:#faf8f8;
+
+    --radius-btn:8px;
+    --radius-card:18px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Open Sans',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.6;
+    font-weight:400;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+
+  h1,h2,h3,h4{
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    line-height:1.2;
+    color:var(--text);
+  }
+
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:14px;
+  }
+
+  p{color:var(--text-muted);max-width:65ch;}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.95rem;
+    padding:15px 30px;
+    border-radius:var(--radius-btn);
+    border:2px solid transparent;
+    cursor:pointer;
+    transition:transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#fff;
+    box-shadow:0 8px 24px -8px var(--accent-glow);
+  }
+  .btn-primary:hover{
+    background:var(--accent-dark);
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px -10px var(--accent-glow);
+  }
+  .btn-outline{
+    background:transparent;
+    border:2px solid var(--accent);
+    color:var(--accent);
+  }
+  .btn-outline:hover{
+    background:var(--accent-soft);
+    transform:translateY(-2px);
+  }
+  .btn-light{
+    background:#fff;
+    color:var(--accent-dark);
+  }
+  .btn-light:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px -10px rgba(0,0,0,0.25);
+  }
+
+  /* HEADER */
+  header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    border-bottom:1px solid rgba(26,26,26,0.08);
+    transition:box-shadow 0.3s ease, backdrop-filter 0.3s ease, background 0.3s ease;
+  }
+  header.scrolled{
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 24px -8px rgba(26,26,26,0.12);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:14px;
+    padding-bottom:14px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo img{height:42px;width:auto;}
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+  }
+  .nav-links a{
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:0.92rem;
+    color:var(--text);
+    transition:color 0.15s ease;
+  }
+  .nav-links a:hover{color:var(--accent);}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:32px;
+    height:32px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    z-index:1100;
+  }
+  .hamburger span{
+    display:block;
+    height:2px;
+    width:100%;
+    background:var(--text);
+    border-radius:2px;
+    transition:transform 0.25s ease, opacity 0.25s ease;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-menu{
+    display:none;
+    position:fixed;
+    inset:0;
+    top:0;
+    background:#fff;
+    z-index:1050;
+    padding:100px 30px 40px;
+    flex-direction:column;
+    gap:8px;
+    overflow-y:auto;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:1.3rem;
+    padding:16px 0;
+    border-bottom:1px solid rgba(26,26,26,0.08);
+  }
+  .mobile-menu .btn{margin-top:24px;width:100%;}
+
+  /* SECTIONS */
+  section{
+    padding-top:96px;
+    padding-bottom:96px;
+  }
+  .section-off{background:var(--bg-off);}
+
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head.center p{margin-left:auto;margin-right:auto;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:16px;}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:88vh;
+    display:flex;
+    align-items:center;
+    padding-top:80px;
+    padding-bottom:80px;
+    background:#111 url('assets/m_1.webp') center 30% / cover no-repeat;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(100deg, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.72) 42%, rgba(20,10,11,0.4) 75%);
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    max-width:640px;
+  }
+  .hero-eyebrow{
+    display:inline-block;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.8rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:#fff;
+    background:rgba(220,53,69,0.9);
+    padding:8px 16px;
+    border-radius:var(--radius-btn);
+    margin-bottom:24px;
+  }
+  .hero h1{
+    color:#fff;
+    font-size:clamp(2.4rem,5.5vw,3.8rem);
+    font-weight:800;
+    margin-bottom:22px;
+  }
+  .hero h1 span{color:var(--accent);}
+  .hero p{
+    color:rgba(255,255,255,0.85);
+    font-size:1.1rem;
+    margin-bottom:36px;
+    max-width:52ch;
+  }
+
+  /* BOL UVOD */
+  .pain{
+    padding-top:72px;
+    padding-bottom:72px;
+    border-bottom:1px solid rgba(26,26,26,0.08);
+  }
+  .pain-inner{
+    max-width:760px;
+  }
+  .pain p{
+    font-size:1.15rem;
+    color:var(--text);
+    font-weight:500;
+    max-width:60ch;
+  }
+
+  /* SERVICES */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  .service-card{
+    background:#fff;
+    border:1px solid rgba(26,26,26,0.08);
+    border-radius:var(--radius-card);
+    padding:34px 26px;
+    transition:box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .service-card:hover{
+    box-shadow:0 20px 40px -20px rgba(26,26,26,0.18);
+    transform:translateY(-4px);
+  }
+  .icon-box{
+    width:52px;
+    height:52px;
+    border-radius:12px;
+    background:var(--accent-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+  }
+  .icon-box svg{width:26px;height:26px;stroke:var(--accent);}
+  .service-card h3{font-size:1.1rem;margin-bottom:10px;}
+  .service-card p{font-size:0.94rem;}
+
+  /* PRICING */
+  .pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .price-card{
+    background:#fff;
+    border:1px solid rgba(26,26,26,0.1);
+    border-radius:var(--radius-card);
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+    transition:box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .price-card:hover{box-shadow:0 20px 40px -20px rgba(26,26,26,0.18);transform:translateY(-4px);}
+  .price-card.featured{
+    border-color:var(--accent);
+    background:linear-gradient(180deg,#fff 0%, var(--accent-soft) 260%);
+    position:relative;
+  }
+  .price-card .tag{
+    position:absolute;
+    top:-13px;
+    right:24px;
+    background:var(--accent);
+    color:#fff;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border-radius:999px;
+  }
+  .price-card h3{font-size:1.15rem;margin-bottom:6px;}
+  .price-card .price{
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    font-size:1.8rem;
+    color:var(--accent-dark);
+    margin-bottom:18px;
+  }
+  .price-card .price span{font-size:0.95rem;font-weight:600;color:var(--text-faint);}
+  .price-list{margin-bottom:26px;flex-grow:1;}
+  .price-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:0.92rem;
+    color:var(--text-muted);
+    margin-bottom:12px;
+  }
+  .price-list li svg{width:16px;height:16px;stroke:var(--accent);flex-shrink:0;margin-top:3px;}
+  .price-note{
+    margin-top:20px;
+    font-size:0.88rem;
+    color:var(--text-faint);
+  }
+
+  /* BRANDS */
+  .brands-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .brand-card{
+    background:#fff;
+    border:1px solid rgba(26,26,26,0.08);
+    border-radius:var(--radius-card);
+    padding:36px 30px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+  }
+  .brand-card img{height:36px;width:auto;object-fit:contain;}
+  .brand-card p{font-size:0.9rem;text-align:center;}
+
+  /* SCHOOL */
+  .school{
+    background:linear-gradient(135deg,#171213 0%, #241417 60%, #2c1216 100%);
+    border-radius:24px;
+    padding:64px 48px;
+    position:relative;
+    overflow:hidden;
+  }
+  .school::before{
+    content:"";
+    position:absolute;
+    top:-140px;
+    right:-140px;
+    width:340px;
+    height:340px;
+    border-radius:50%;
+    background:radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  }
+  .school-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:56px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  .school h2{color:#fff;font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:18px;}
+  .school p{color:rgba(255,255,255,0.78);margin-bottom:16px;}
+  .school-facts{
+    display:flex;
+    gap:32px;
+    margin-top:30px;
+    margin-bottom:32px;
+  }
+  .school-fact .num{
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    font-size:2rem;
+    color:var(--accent);
+  }
+  .school-fact .label{
+    font-size:0.85rem;
+    color:rgba(255,255,255,0.65);
+  }
+  .school-list{display:flex;flex-direction:column;gap:16px;}
+  .school-list li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    color:rgba(255,255,255,0.85);
+    font-size:0.95rem;
+  }
+  .school-list li svg{width:18px;height:18px;stroke:var(--accent);flex-shrink:0;margin-top:2px;}
+
+  /* ABOUT */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .placeholder{
+    background:#e4e2e2;
+    border:1px dashed rgba(26,26,26,0.25);
+    border-radius:var(--radius-card);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--text-faint);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:20px;
+    min-height:340px;
+  }
+  .about-text h2{margin-bottom:18px;}
+  .about-text p{margin-bottom:16px;}
+  .about-badges{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:28px;
+  }
+  .badge{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--accent-soft);
+    color:var(--accent-dark);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.82rem;
+    padding:10px 16px;
+    border-radius:999px;
+  }
+  .badge svg{width:16px;height:16px;stroke:var(--accent-dark);}
+
+  /* TESTIMONIALS */
+  .stats-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-bottom:56px;
+  }
+  .stat-box{
+    background:#fff;
+    border:1px solid rgba(26,26,26,0.08);
+    border-radius:var(--radius-card);
+    padding:30px 24px;
+    text-align:center;
+  }
+  .stat-box .num{
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    font-size:2.2rem;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+  }
+  .stat-box .num svg{width:24px;height:24px;stroke:var(--accent);}
+  .stat-box .label{font-size:0.88rem;color:var(--text-muted);margin-top:8px;}
+
+  .video-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .video-card{
+    background:#161113;
+    border-radius:var(--radius-card);
+    aspect-ratio:9/12;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    color:rgba(255,255,255,0.75);
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:0.85rem;
+    text-align:center;
+    padding:20px;
+    position:relative;
+  }
+  .video-card .play{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    border:2px solid var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .video-card .play svg{width:20px;height:20px;stroke:var(--accent);fill:var(--accent);}
+
+  /* CTA CLOSE */
+  .cta-close{
+    background:var(--accent);
+    border-radius:24px;
+    padding:64px 48px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-close::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 30% 20%, rgba(255,255,255,0.16) 0%, transparent 55%);
+  }
+  .cta-close h2{
+    color:#fff;
+    font-size:clamp(1.8rem,3.4vw,2.5rem);
+    margin-bottom:16px;
+    position:relative;
+    z-index:2;
+  }
+  .cta-close p{
+    color:rgba(255,255,255,0.9);
+    max-width:52ch;
+    margin:0 auto 32px;
+    position:relative;
+    z-index:2;
+  }
+  .cta-close .btn-row{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+    position:relative;
+    z-index:2;
+  }
+
+  /* FOOTER */
+  footer{
+    background:#161113;
+    color:rgba(255,255,255,0.7);
+    padding-top:72px;
+    padding-bottom:32px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:48px;
+    padding-bottom:48px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .footer-logo{height:44px;margin-bottom:18px;}
+  footer h4{
+    color:#fff;
+    font-size:0.92rem;
+    margin-bottom:18px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  footer p{color:rgba(255,255,255,0.6);font-size:0.92rem;}
+  .footer-links{display:flex;flex-direction:column;gap:12px;}
+  .footer-links a{font-size:0.92rem;color:rgba(255,255,255,0.65);transition:color 0.15s ease;}
+  .footer-links a:hover{color:var(--accent);}
+  .footer-bottom{
+    padding-top:28px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.82rem;
+    color:rgba(255,255,255,0.45);
+  }
+
+  /* SCROLL REVEAL */
+  .reveal{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal:not(.in-view){
+    opacity:1;
+    transform:translateY(12px);
+  }
+  .reveal.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:991px){
+    .nav-links, .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .pricing-grid{grid-template-columns:1fr;}
+    .brands-row{grid-template-columns:1fr;}
+    .school-grid{grid-template-columns:1fr;gap:36px;}
+    .school{padding:44px 28px;}
+    .about-grid{grid-template-columns:1fr;}
+    .stats-row{grid-template-columns:1fr 1fr;}
+    .video-grid{grid-template-columns:repeat(3,1fr);}
+    .footer-grid{grid-template-columns:1fr;gap:32px;}
+  }
+
+  @media (max-width:768px){
+    section{padding-top:64px;padding-bottom:64px;}
+    .wrap{padding-left:20px;padding-right:20px;}
+    .hero{min-height:auto;padding-top:64px;padding-bottom:64px;}
+    .hero h1{font-size:clamp(2rem,8vw,2.6rem);}
+    .services-grid{grid-template-columns:1fr;}
+    .brands-row{grid-template-columns:1fr;}
+    .stats-row{grid-template-columns:1fr;}
+    .video-grid{grid-template-columns:1fr;}
+    .cta-close{padding:44px 24px;}
+    .cta-close .btn-row{flex-direction:column;align-items:stretch;}
+    .school{padding:36px 20px;}
+    .footer-bottom{flex-direction:column;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap nav">
+    <a href="#" class="logo">
+      <img src="assets/logo.png" alt="MAGNA Auto Detailing Studio logo">
+    </a>
+    <nav class="nav-links">
+      <a href="#usluge">Usluge</a>
+      <a href="#cenovnik">Cenovnik</a>
+      <a href="#brendovi">Brendovi</a>
+      <a href="#skola">Škola detailinga</a>
+      <a href="#o-nama">O nama</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#usluge">Usluge</a>
+  <a href="#cenovnik">Cenovnik</a>
+  <a href="#brendovi">Brendovi</a>
+  <a href="#skola">Škola detailinga</a>
+  <a href="#o-nama">O nama</a>
+  <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
+</div>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="hero-eyebrow">Beograd · Zvanični distributer Koch-Chemie, Colourlock i Tornador</span>
+    <h1>Vrati autu sjaj kakav je imao prvog dana. <span>Profesionalno, ne amaterski.</span></h1>
+    <p>Premium pranje, poliranje, keramička zaštita i PPF folija za automobile i motocikle. Radimo precizno, jedan po jedan detalj, dok ne budeš zadovoljan rezultatom.</p>
+    <a href="#kontakt" class="btn btn-primary">Zakaži termin za detailing</a>
+  </div>
+</section>
+
+<section class="pain">
+  <div class="wrap pain-inner">
+    <p>Lak gubi sjaj, sitne ogrebotine se gomilaju, a felne i enterijer prljaju se brže nego što stigneš da ih očistiš. Amaterski proizvodi sa polica marketa retko rešavaju problem - samo ga privremeno prekriju. Mi radimo drugačije: dijagnostikujemo stanje laka i biramo tretman koji stvarno traje.</p>
+  </div>
+</section>
+
+<section id="usluge">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Usluge</span>
+      <h2>Sve što tvom vozilu treba, na jednom mestu</h2>
+      <p>Od redovnog pranja do dugoročne zaštite laka - biraš koliko duboko ideš.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.8 4-4 0-2.5-2.9-6.3-3.6-7.2a.5.5 0 0 0-.8 0C6 6 3 9.8 3 12.3c0 2.2 1.8 4 4 4Z"></path><path d="M17 21c2.2 0 4-1.8 4-4 0-2.5-2.9-6.3-3.6-7.2a.5.5 0 0 0-.8 0C16 11 13 14.8 13 17.3c0 2.2 1.8 3.7 4 3.7Z"></path></svg>
+        </div>
+        <h3>Premium pranje</h3>
+        <p>Ručno pranje dvema kofama, dekontaminacija laka i zaštita guma i felni - bez mikroogrebotina koje ostavljaju automatske perionice.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18"></path><path d="M5 17V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8"></path><path d="M7 17v3"></path><path d="M17 17v3"></path><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path></svg>
+        </div>
+        <h3>Detailing enterijera</h3>
+        <p>Dubinsko usisavanje, pranje tapacirunga, tretman kože Colourlock proizvodima i dezinfekcija ventilacionog sistema.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2Z"></path></svg>
+        </div>
+        <h3>Poliranje i zaštita</h3>
+        <p>Korekcija laka, keramički premaz i PPF folija - biraš nivo zaštite prema tome koliko dugo planiraš da voziš auto.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="18.5" cy="17.5" r="3.5"></circle><path d="M15 6l-3 6h6l-2 5.5"></path><path d="M9 6h4"></path><path d="M5.5 17.5L9 12l2 3"></path></svg>
+        </div>
+        <h3>Detailing motocikala</h3>
+        <p>Pranje, poliranje hroma i lakiranih površina i zaštita motora od korozije i UV zračenja tokom sezone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cenovnik" class="section-off">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Cenovnik</span>
+      <h2>Jasne cene, bez iznenađenja</h2>
+      <p>Konačna cena zavisi od stanja i veličine vozila. Ovo su okvirne cene od kojih krećemo razgovor.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>Premium pranje</h3>
+        <div class="price">od 3.000 <span>din</span></div>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Ručno pranje dvema kofama</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Dekontaminacija laka</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Čišćenje felni i guma</li>
+        </ul>
+      </div>
+      <div class="price-card featured reveal">
+        <span class="tag">Najtraženije</span>
+        <h3>Poliranje i keramika</h3>
+        <div class="price">od 35.000 <span>din</span></div>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Korekcija laka jednom ili dve faze</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Keramički premaz Koch-Chemie</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Zaštita do 24 meseca</li>
+        </ul>
+      </div>
+      <div class="price-card reveal">
+        <h3>PPF folija</h3>
+        <div class="price">na upit</div>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Zaštita haube, branika i retrovizora ili celog vozila</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Cena zavisi od modela i pokrivenosti</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Ponuda posle pregleda vozila</li>
+        </ul>
+      </div>
+    </div>
+    <p class="price-note">Detailing enterijera od 6.000 din, detailing motocikala od 8.000 din. Tačnu cenu dobijaš posle kratkog pregleda vozila.</p>
+  </div>
+</section>
+
+<section id="brendovi">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Zvanični distributer</span>
+      <h2>Radimo isključivo sa proverenim brendovima</h2>
+      <p>Nema improvizacije. Koristimo i prodajemo profesionalnu hemiju i opremu koju znamo napamet.</p>
+    </div>
+    <div class="brands-row">
+      <div class="brand-card reveal">
+        <img src="assets/kochchemie.webp" alt="Koch-Chemie logo">
+        <p>Nemačka profesionalna hemija za pranje, poliranje i keramičku zaštitu.</p>
+      </div>
+      <div class="brand-card reveal">
+        <img src="assets/colourlock.webp" alt="Colourlock logo">
+        <p>Specijalizovani proizvodi za negu i restauraciju kože u enterijeru.</p>
+      </div>
+      <div class="brand-card reveal">
+        <img src="assets/t.webp" alt="Tornador logo">
+        <p>Pneumatski alati za dubinsko čišćenje enterijera i motornog prostora.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skola" class="section-off">
+  <div class="wrap">
+    <div class="school">
+      <div class="school-grid">
+        <div>
+          <span class="eyebrow" style="color:var(--accent);">MAGNA Detailing School</span>
+          <h2>Nauči detailing od ljudi koji ga rade svaki dan</h2>
+          <p>Škola radi od 2020. godine. Predajemo tehnike pranja, korekcije laka, keramičke zaštite i rada sa profesionalnom hemijom - isto ono što primenjujemo u studiju.</p>
+          <p>Posle kursa dobijaš sertifikat koji potvrđuje da znaš da radiš posao, ne samo da gledaš tutorijale.</p>
+          <div class="school-facts">
+            <div class="school-fact">
+              <div class="num">2020.</div>
+              <div class="label">Škola radi od</div>
+            </div>
+            <div class="school-fact">
+              <div class="num">250+</div>
+              <div class="label">Obučenih polaznika</div>
+            </div>
+          </div>
+          <a href="#kontakt" class="btn btn-primary">Prijavi se za kurs detailinga</a>
+        </div>
+        <div>
+          <ul class="school-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Praktičan rad na realnim vozilima, ne samo teorija</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Rad sa Koch-Chemie i Colourlock proizvodima</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Sertifikat po završetku kursa</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Grupe malog broja polaznika, direktan rad sa instruktorom</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="o-nama">
+  <div class="wrap about-grid">
+    <div class="placeholder reveal" role="img" aria-label="Fotografija enterijera studija MAGNA">FOTOGRAFIJA STUDIJA</div>
+    <div class="about-text reveal">
+      <span class="eyebrow">O nama</span>
+      <h2>Studio za ljude kojima je stalo do vozila</h2>
+      <p>MAGNA Auto Detailing Studio radi u Beogradu i bavi se isključivo detailingom automobila i motocikala. Nismo autoperionica koja usput nudi poliranje - ovo nam je jedini posao.</p>
+      <p>Kao zvanični distributer Koch-Chemie, Colourlock i Tornador brendova, koristimo istu hemiju i opremu koju preporučujemo klijentima za kućnu negu. Kroz MAGNA Detailing School prenosimo znanje dalje, drugim ljudima koji žele da rade ovaj posao profesionalno.</p>
+      <div class="about-badges">
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Precizno</span>
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Pouzdano</span>
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Profesionalno</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-off">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Utisci</span>
+      <h2>Ono što klijenti kažu posle</h2>
+      <p>Recenzije sa 5 zvezdica i video-svedočenja klijenata koji su prošli kroz naš studio.</p>
+    </div>
+    <div class="stats-row">
+      <div class="stat-box reveal">
+        <div class="num">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l2.9 6.9 7.5.6-5.7 5 1.7 7.4L12 18l-6.4 3.9 1.7-7.4-5.7-5 7.5-.6L12 2z"></path></svg>
+          5.0
+        </div>
+        <div class="label">Prosečna ocena recenzija</div>
+      </div>
+      <div class="stat-box reveal">
+        <div class="num">2020.</div>
+        <div class="label">MAGNA Detailing School od</div>
+      </div>
+      <div class="stat-box reveal">
+        <div class="num">250+</div>
+        <div class="label">Obučenih polaznika škole</div>
+      </div>
+    </div>
+    <div class="video-grid">
+      <div class="video-card reveal">
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+        <span>VIDEO UTISAK KLIJENTA</span>
+      </div>
+      <div class="video-card reveal">
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+        <span>VIDEO UTISAK KLIJENTA</span>
+      </div>
+      <div class="video-card reveal">
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+        <span>VIDEO UTISAK KLIJENTA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap">
+    <div class="cta-close reveal">
+      <h2>Zakaži termin ili se prijavi za kurs</h2>
+      <p>Javi nam se sa modelom vozila i onim što te najviše smeta na njemu. Za školu, javi se za sledeći slobodan termin grupe.</p>
+      <div class="btn-row">
+        <a href="#" class="btn btn-light">Zakaži termin za detailing</a>
+        <a href="#" class="btn btn-outline" style="border-color:#fff;color:#fff;">Prijavi se za kurs u školi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo.png" alt="MAGNA Auto Detailing Studio logo" class="footer-logo">
+        <p>Profesionalni detailing studio za automobile i motocikle u Beogradu. Zvanični distributer Koch-Chemie, Colourlock i Tornador brendova.</p>
+      </div>
+      <div>
+        <h4>Navigacija</h4>
+        <div class="footer-links">
+          <a href="#usluge">Usluge</a>
+          <a href="#cenovnik">Cenovnik</a>
+          <a href="#brendovi">Brendovi</a>
+          <a href="#skola">Škola detailinga</a>
+          <a href="#o-nama">O nama</a>
+        </div>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <div class="footer-links">
+          <a href="#">Beograd, Srbija</a>
+          <a href="#">+381 60 000 0000</a>
+          <a href="#">info@magna-detailing.rs</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
+      <span>© 2024 MAGNA Auto Detailing Studio. Sva prava zadržana.</span>
+      <span>Beograd, Srbija</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll efekat
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Hamburger meni
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // Scroll reveal
+  if ('IntersectionObserver' in window) {
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => observer.observe(el));
+  }
+</script>
+
+</body>
+</html>
