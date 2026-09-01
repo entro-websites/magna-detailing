@@ -25,6 +25,8 @@
 
     --radius-btn:8px;
     --radius-card:18px;
+
+    --section-pad:96px;
   }
 
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -41,6 +43,7 @@
   img{max-width:100%;display:block;}
   a{color:inherit;text-decoration:none;}
   ul{list-style:none;}
+  [hidden]{display:none !important;}
 
   h1,h2,h3,h4{
     font-family:'Montserrat',sans-serif;
@@ -103,6 +106,7 @@
     background:var(--accent-soft);
     transform:translateY(-2px);
   }
+  .btn-wide{width:100%;}
   .btn-light{
     background:#fff;
     color:var(--accent-dark);
@@ -202,8 +206,8 @@
 
   /* SECTIONS */
   section{
-    padding-top:96px;
-    padding-bottom:96px;
+    padding-top:var(--section-pad);
+    padding-bottom:var(--section-pad);
   }
   .section-off{background:var(--bg-off);}
 
@@ -218,8 +222,6 @@
   /* HERO */
   .hero{
     position:relative;
-    padding-top:84px;
-    padding-bottom:0;
   }
   .hero::after{
     content:"";
@@ -322,7 +324,6 @@
 
   /* ZASTO MI */
   .why{
-    padding-bottom:0;
     border-bottom:1px solid rgba(26,26,26,0.08);
   }
   .why-grid{
@@ -369,7 +370,6 @@
     position:relative;
     width:100%;
     overflow:hidden;
-    padding-bottom:96px;
     -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
     mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
   }
@@ -442,7 +442,6 @@
     grid-template-columns:repeat(2,1fr);
     gap:24px;
   }
-  .ba-card-wide{margin-top:24px;}
   .ba-card{
     background:#fff;
     border:1px solid rgba(26,26,26,0.12);
@@ -557,6 +556,176 @@
   .ba-body{padding:20px 24px 24px;}
   .ba-body h3{font-size:1rem;margin-bottom:6px;}
   .ba-body p{font-size:0.9rem;margin:0;}
+
+  /* PREMIUM NEGA */
+  .sv-head{
+    max-width:720px;
+    margin:0 auto 56px;
+    text-align:center;
+  }
+  .sv-head h2{
+    font-size:clamp(2rem,4vw,3rem);
+    letter-spacing:-0.02em;
+    margin-bottom:16px;
+  }
+  .sv-head p{
+    margin:0 auto 28px;
+    max-width:46ch;
+    font-size:0.98rem;
+  }
+  .sv-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+  }
+  .sv-card{
+    display:block;
+    background:#161113;
+    border-radius:20px;
+    padding:12px;
+    box-shadow:0 20px 40px -24px rgba(26,26,26,0.5);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .sv-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 28px 52px -24px rgba(26,26,26,0.55);
+  }
+  .sv-shot{
+    height:400px;
+    border-radius:12px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    background:linear-gradient(150deg,#3a3a3a 0%,#181818 60%,#221619 100%);
+    color:rgba(255,255,255,0.45);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.76rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  .sv-shot img{width:100%;height:100%;object-fit:cover;}
+  .sv-panel{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-top:12px;
+    background:#fff;
+    border-radius:12px;
+    padding:16px;
+  }
+  .sv-panel h3{
+    font-size:1rem;
+    margin-bottom:4px;
+  }
+  .sv-panel p{
+    font-size:0.9rem;
+    margin:0;
+  }
+  .sv-arrow{
+    flex:0 0 auto;
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    background:var(--bg-off);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background 0.2s ease;
+  }
+  .sv-arrow svg{
+    width:18px;
+    height:18px;
+    stroke:var(--text);
+    fill:none;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+  .sv-card:hover .sv-arrow{background:var(--accent-soft);}
+  .sv-card:hover .sv-arrow svg{stroke:var(--accent);}
+
+  /* KAKO RADIMO */
+  .how-head{
+    max-width:640px;
+    margin:0 auto 56px;
+    text-align:center;
+  }
+  .how-head h2{
+    font-size:clamp(1.8rem,3.4vw,2.4rem);
+    letter-spacing:-0.02em;
+    margin-bottom:12px;
+  }
+  .how-head p{
+    margin:0 auto;
+    max-width:42ch;
+    font-size:0.92rem;
+  }
+  .how-steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-bottom:48px;
+  }
+  .how-step{
+    position:relative;
+    text-align:center;
+    padding-left:24px;
+    padding-right:24px;
+  }
+  .how-step + .how-step::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:24px;
+    width:1px;
+    height:44px;
+    background:rgba(26,26,26,0.14);
+  }
+  .how-num{
+    display:inline-block;
+    background:#fff;
+    border:1px solid rgba(26,26,26,0.14);
+    border-radius:8px;
+    padding:4px 12px;
+    margin-bottom:16px;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.7rem;
+    letter-spacing:0.06em;
+    color:var(--text-muted);
+  }
+  .how-step h3{
+    font-size:0.94rem;
+    margin-bottom:8px;
+  }
+  .how-step p{
+    margin:0 auto;
+    max-width:26ch;
+    font-size:0.86rem;
+  }
+  .how-shot{
+    height:420px;
+    border-radius:16px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    background:linear-gradient(150deg,#3a3a3a 0%,#181818 60%,#221619 100%);
+    color:rgba(255,255,255,0.45);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.76rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  .how-shot img{width:100%;height:100%;object-fit:cover;}
 
   /* SERVICES */
   .services-grid{
@@ -796,38 +965,365 @@
   .stat-box .num svg{width:24px;height:24px;stroke:var(--accent);}
   .stat-box .label{font-size:0.88rem;color:var(--text-muted);margin-top:8px;}
 
-  .video-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
+  .tst-card{
+    background:#f1eeee;
+    border-radius:20px;
+    padding:56px 24px;
+    text-align:center;
   }
-  .video-card{
-    background:#161113;
-    border-radius:var(--radius-card);
-    aspect-ratio:9/12;
+  .tst-stars{
     display:flex;
-    flex-direction:column;
+    justify-content:center;
+    gap:4px;
+    margin-bottom:24px;
+  }
+  .tst-stars svg{width:16px;height:16px;fill:#f5a623;stroke:none;}
+  .tst-slide{display:none;}
+  .tst-slide.is-active{display:block;}
+  .tst-quote{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:clamp(1.05rem,2vw,1.35rem);
+    line-height:1.45;
+    color:var(--text);
+    max-width:34ch;
+    margin:0 auto 28px;
+  }
+  .tst-avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    margin:0 auto;
+    display:flex;
     align-items:center;
     justify-content:center;
-    gap:14px;
-    color:rgba(255,255,255,0.75);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.76rem;
+    color:#fff;
+    background:linear-gradient(140deg,#4c4c4c,#1c1c1c);
+  }
+  .tst-name{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.8rem;
+    color:var(--text);
+    margin-top:12px;
+  }
+  .tst-role{
+    font-size:0.75rem;
+    color:var(--text-faint);
+    margin-top:4px;
+  }
+  .tst-dots{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:24px;
+  }
+  .tst-dots button{
+    width:8px;
+    height:8px;
+    padding:0;
+    border:none;
+    border-radius:50%;
+    background:rgba(26,26,26,0.2);
+    cursor:pointer;
+    transition:background 0.2s ease;
+  }
+  .tst-dots button.is-active{background:var(--text);}
+
+  /* KVIZ - PROCENA */
+  .quiz{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:52px;
+    align-items:start;
+  }
+  .quiz h2{font-size:clamp(1.8rem,3.4vw,2.4rem);letter-spacing:-0.02em;}
+  .quiz .lead{margin-top:18px;font-size:1.02rem;max-width:52ch;}
+  .quiz-contact{
+    margin-top:30px;
+    padding-top:24px;
+    border-top:1px solid rgba(26,26,26,0.08);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  .quiz-contact small{
+    display:block;
+    font-size:11.5px;
+    letter-spacing:0.13em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    margin-bottom:5px;
+  }
+  .quiz-contact a{
     font-family:'Montserrat',sans-serif;
     font-weight:600;
-    font-size:0.85rem;
-    text-align:center;
-    padding:20px;
-    position:relative;
+    font-size:15px;
   }
-  .video-card .play{
-    width:56px;
-    height:56px;
-    border-radius:50%;
-    border:2px solid var(--accent);
+  .quiz-contact a:hover{color:var(--accent);}
+
+  .quiz-card{
+    background:var(--bg-off);
+    border:1px solid rgba(26,26,26,0.12);
+    border-radius:var(--radius-btn);
+    padding:30px;
+  }
+  .quiz-card button,
+  .quiz-card input{font-family:inherit;font-size:inherit;color:inherit;}
+  .quiz-progress{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:24px;
+  }
+  .quiz-progress > span{
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    white-space:nowrap;
+  }
+  .quiz-bar{
+    flex:1;
+    height:3px;
+    background:rgba(26,26,26,0.12);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .quiz-bar i{
+    display:block;
+    height:100%;
+    width:33%;
+    background:var(--accent);
+    transition:width 0.4s ease;
+  }
+  .quiz-step h3{font-size:1.15rem;margin-bottom:6px;}
+  .quiz-hint{font-size:13.5px;margin-bottom:18px;}
+  .opts{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  .opt{
+    text-align:left;
+    background:#fff;
+    border:1px solid rgba(26,26,26,0.12);
+    border-radius:var(--radius-btn);
+    padding:14px 16px;
+    cursor:pointer;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .opt:hover{border-color:rgba(220,53,69,0.5);}
+  .opt.is-on{border-color:var(--accent);background:var(--accent-soft);}
+  .opt strong{
+    display:block;
+    font-family:'Montserrat',sans-serif;
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--text);
+  }
+  .opt small{color:var(--text-muted);font-size:12.5px;}
+  .fields{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .field label{
+    display:block;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    margin-bottom:7px;
+  }
+  .field input{
+    width:100%;
+    background:#fff;
+    border:1px solid rgba(26,26,26,0.12);
+    border-radius:var(--radius-btn);
+    padding:12px 14px;
+    outline:none;
+    transition:border-color 0.2s ease;
+  }
+  .field input:focus{border-color:var(--accent);}
+  .field--full{grid-column:1 / -1;}
+  .quiz-nav{display:flex;gap:12px;margin-top:26px;}
+  .quiz-nav .btn-primary{margin-left:auto;}
+  .quiz-err{
+    color:var(--accent-dark);
+    font-size:13px;
+    margin-top:14px;
+    display:none;
+  }
+  .quiz-err.is-on{display:block;}
+  .quiz-result{text-align:center;}
+  .quiz-result h3{font-size:1.15rem;margin:16px 0 8px;}
+  .quiz-result p{margin-left:auto;margin-right:auto;}
+  .result-box{
+    text-align:left;
+    background:#fff;
+    border:1px solid rgba(26,26,26,0.12);
+    border-radius:var(--radius-btn);
+    padding:22px;
+    margin-top:22px;
+  }
+  .result-box > span{
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .result-box strong{
+    display:block;
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    font-size:1.15rem;
+    color:var(--text);
+    margin:8px 0 4px;
+  }
+  .result-list{margin-top:16px;display:grid;gap:9px;}
+  .result-list li{
+    display:flex;
+    gap:10px;
+    font-size:14px;
+    color:var(--text-muted);
+  }
+  .result-list li::before{content:"/";color:var(--accent);font-weight:700;}
+
+  /* FAQ + CTA BANER */
+  .faq-head{
+    max-width:640px;
+    margin:0 auto 56px;
+    text-align:center;
+  }
+  .faq-head h2{
+    font-size:clamp(1.8rem,3.4vw,2.4rem);
+    letter-spacing:-0.02em;
+    margin-bottom:12px;
+  }
+  .faq-head p{
+    margin:0 auto 24px;
+    max-width:44ch;
+    font-size:0.92rem;
+  }
+  .faq-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px 24px;
+  }
+  .faq-item{
+    align-self:start;
+    background:#fff;
+    border:1px solid rgba(26,26,26,0.12);
+    border-radius:10px;
+  }
+  .faq-item summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:16px 20px;
+    cursor:pointer;
+    list-style:none;
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:0.86rem;
+    color:var(--text);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-plus{
+    flex:0 0 auto;
+    width:28px;
+    height:28px;
+    border-radius:8px;
+    background:var(--bg-off);
     display:flex;
     align-items:center;
     justify-content:center;
+    transition:transform 0.2s ease, background 0.2s ease;
   }
-  .video-card .play svg{width:20px;height:20px;stroke:var(--accent);fill:var(--accent);}
+  .faq-plus svg{
+    width:14px;
+    height:14px;
+    stroke:var(--text);
+    fill:none;
+    stroke-width:2;
+    stroke-linecap:round;
+  }
+  .faq-item[open] .faq-plus{
+    transform:rotate(45deg);
+    background:var(--accent-soft);
+  }
+  .faq-item[open] .faq-plus svg{stroke:var(--accent);}
+  .faq-item p{
+    padding:0 20px 16px;
+    font-size:0.86rem;
+    max-width:none;
+  }
+
+  .cta-banner{
+    position:relative;
+    margin-top:72px;
+    min-height:390px;
+    border-radius:16px;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    background:linear-gradient(150deg,#3a2b2d 0%,#141112 55%,#1f1315 100%);
+  }
+  .cta-banner::before{
+    content:"FOTOGRAFIJA VOZILA";
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:rgba(255,255,255,0.22);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.76rem;
+    letter-spacing:0.1em;
+  }
+  .cta-banner::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(0deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.25) 55%, transparent 100%);
+  }
+  .cta-banner img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .cta-banner-inner{
+    position:relative;
+    z-index:2;
+    padding:56px;
+  }
+  .cta-banner h2{
+    color:#fff;
+    font-size:clamp(1.6rem,3vw,2.2rem);
+    letter-spacing:-0.02em;
+    margin-bottom:12px;
+  }
+  .cta-banner p{
+    color:rgba(255,255,255,0.8);
+    font-size:0.9rem;
+    margin-bottom:24px;
+  }
+  .cta-banner .btn-light{
+    border-radius:999px;
+    padding:12px 24px;
+    font-size:0.88rem;
+    color:var(--text);
+  }
 
   /* CTA CLOSE */
   .cta-close{
@@ -869,38 +1365,63 @@
 
   /* FOOTER */
   footer{
-    background:#161113;
+    background:#141414;
     color:rgba(255,255,255,0.7);
     padding-top:72px;
-    padding-bottom:32px;
+    padding-bottom:0;
+    overflow:hidden;
   }
   .footer-grid{
     display:grid;
-    grid-template-columns:1.4fr 1fr 1fr;
+    grid-template-columns:1.6fr 1fr 1fr 1fr;
     gap:48px;
     padding-bottom:48px;
-    border-bottom:1px solid rgba(255,255,255,0.1);
+    border-bottom:1px solid rgba(255,255,255,0.12);
   }
-  .footer-logo{height:44px;margin-bottom:18px;}
-  footer h4{
-    color:#fff;
+  .footer-brand strong{
+    display:block;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
     font-size:0.92rem;
-    margin-bottom:18px;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
+    color:#fff;
+    margin-bottom:16px;
   }
-  footer p{color:rgba(255,255,255,0.6);font-size:0.92rem;}
-  .footer-links{display:flex;flex-direction:column;gap:12px;}
-  .footer-links a{font-size:0.92rem;color:rgba(255,255,255,0.65);transition:color 0.15s ease;}
-  .footer-links a:hover{color:var(--accent);}
-  .footer-bottom{
-    padding-top:28px;
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:12px;
-    font-size:0.82rem;
+  .footer-brand p{
     color:rgba(255,255,255,0.45);
+    font-size:0.82rem;
+    max-width:34ch;
+  }
+  footer h4{
+    color:rgba(255,255,255,0.45);
+    font-family:'Open Sans',sans-serif;
+    font-weight:400;
+    font-size:0.82rem;
+    letter-spacing:0;
+    text-transform:none;
+    margin-bottom:20px;
+  }
+  .footer-links{display:flex;flex-direction:column;gap:16px;}
+  .footer-links a,
+  .footer-links span{
+    font-size:0.82rem;
+    color:rgba(255,255,255,0.88);
+    transition:color 0.15s ease;
+  }
+  .footer-links a:hover{color:var(--accent);}
+  .footer-mark{
+    margin-top:40px;
+    margin-bottom:-0.16em;
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    font-size:clamp(3.5rem,15.5vw,13rem);
+    line-height:0.82;
+    letter-spacing:-0.03em;
+    text-align:center;
+    background:linear-gradient(180deg,#e2e2e2 0%,#9a9a9a 45%,#3a3a3a 78%,#141414 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    user-select:none;
   }
 
   /* SCROLL REVEAL */
@@ -928,6 +1449,12 @@
     .why-grid{grid-template-columns:1fr;gap:40px;margin-bottom:56px;}
     .why-head p{max-width:52ch;}
     .ba-grid{grid-template-columns:1fr;}
+    .sv-grid{grid-template-columns:1fr;}
+    .quiz{grid-template-columns:1fr;gap:40px;}
+    .faq-grid{grid-template-columns:1fr;}
+    .how-steps{grid-template-columns:1fr;gap:36px;}
+    .how-step{padding-left:0;padding-right:0;}
+    .how-step + .how-step::before{display:none;}
     .services-grid{grid-template-columns:repeat(2,1fr);}
     .pricing-grid{grid-template-columns:1fr;}
     .brands-row{grid-template-columns:1fr;}
@@ -935,21 +1462,26 @@
     .school{padding:44px 28px;}
     .about-grid{grid-template-columns:1fr;}
     .stats-row{grid-template-columns:1fr 1fr;}
-    .video-grid{grid-template-columns:repeat(3,1fr);}
-    .footer-grid{grid-template-columns:1fr;gap:32px;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
   }
 
   @media (max-width:768px){
-    section{padding-top:64px;padding-bottom:64px;}
+    :root{--section-pad:64px;}
     .wrap{padding-left:20px;padding-right:20px;}
-    .hero{padding-top:56px;}
     .hero h1{font-size:clamp(2rem,8vw,2.8rem);}
     .hero-meta{gap:20px;}
     .hero-badge{position:static;margin-top:14px;max-width:none;}
     .why-features{grid-template-columns:1fr;gap:32px;}
     .why-feature p{max-width:52ch;}
-    .marquee{padding-bottom:64px;}
     .marquee-card{width:264px;height:200px;margin-right:16px;}
+    .sv-shot{height:280px;}
+    .how-shot{height:300px;}
+    .opts{grid-template-columns:1fr;}
+    .fields{grid-template-columns:1fr;}
+    .quiz-contact{grid-template-columns:1fr;}
+    .quiz-card{padding:22px;}
+    .cta-banner{min-height:320px;margin-top:56px;}
+    .cta-banner-inner{padding:32px 20px;}
     .ba-media{height:264px;}
     .ba-range::-webkit-slider-thumb{height:264px;}
     .ba-range::-moz-range-thumb{height:264px;}
@@ -957,11 +1489,11 @@
     .services-grid{grid-template-columns:1fr;}
     .brands-row{grid-template-columns:1fr;}
     .stats-row{grid-template-columns:1fr;}
-    .video-grid{grid-template-columns:1fr;}
+    .tst-card{padding:40px 20px;}
     .cta-close{padding:44px 24px;}
     .cta-close .btn-row{flex-direction:column;align-items:stretch;}
     .school{padding:36px 20px;}
-    .footer-bottom{flex-direction:column;text-align:center;}
+    .footer-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -997,7 +1529,7 @@
   <a href="#kontakt" class="btn btn-primary">Zakaži termin</a>
 </div>
 
-<section class="hero">
+<section class="hero" id="top">
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -1126,24 +1658,104 @@
           <p>Zamućenje skinuto, farovi ponovo bistri.</p>
         </div>
       </div>
-    </div>
-    <div class="ba-card ba-card-wide reveal">
-      <div class="ba-media">
-        <div class="ba-layer ba-before">Fotografija pre</div>
-        <div class="ba-layer ba-after">Fotografija posle</div>
-        <span class="ba-tag ba-tag-before">Pre</span>
-        <span class="ba-tag ba-tag-after">Posle</span>
-        <span class="ba-divider" aria-hidden="true"></span>
-        <span class="ba-handle" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4"></path><path d="M16 8l4 4-4 4"></path><path d="M4 12h16"></path></svg>
-        </span>
-        <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="Prevuci da uporediš pre i posle - Keramička zaštita">
+      <div class="ba-card reveal">
+        <div class="ba-media">
+          <div class="ba-layer ba-before">Fotografija pre</div>
+          <div class="ba-layer ba-after">Fotografija posle</div>
+          <span class="ba-tag ba-tag-before">Pre</span>
+          <span class="ba-tag ba-tag-after">Posle</span>
+          <span class="ba-divider" aria-hidden="true"></span>
+          <span class="ba-handle" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4"></path><path d="M16 8l4 4-4 4"></path><path d="M4 12h16"></path></svg>
+          </span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="Prevuci da uporediš pre i posle - Keramička zaštita">
+        </div>
+        <div class="ba-body">
+          <h3>Keramička zaštita</h3>
+          <p>Lak zaštićen, voda se skida sama.</p>
+        </div>
       </div>
-      <div class="ba-body">
-        <h3>Keramička zaštita</h3>
-        <p>Lak zaštićen, voda se skida sama.</p>
+      <div class="ba-card reveal">
+        <div class="ba-media">
+          <div class="ba-layer ba-before">Fotografija pre</div>
+          <div class="ba-layer ba-after">Fotografija posle</div>
+          <span class="ba-tag ba-tag-before">Pre</span>
+          <span class="ba-tag ba-tag-after">Posle</span>
+          <span class="ba-divider" aria-hidden="true"></span>
+          <span class="ba-handle" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4"></path><path d="M16 8l4 4-4 4"></path><path d="M4 12h16"></path></svg>
+          </span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="Prevuci da uporediš pre i posle - Detailing enterijera">
+        </div>
+        <div class="ba-body">
+          <h3>Detailing enterijera</h3>
+          <p>Tapacirung i koža vraćeni u formu.</p>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="nega">
+  <div class="wrap">
+    <div class="sv-head reveal">
+      <h2>Premium nega<br>za svako vozilo</h2>
+      <p>Stručna nega za sjaj, zaštitu i dugoročnu vrednost vozila.</p>
+      <a href="#usluge" class="btn btn-dark">Pogledaj usluge</a>
+    </div>
+    <div class="sv-grid">
+      <a class="sv-card reveal" href="#usluge">
+        <div class="sv-shot">Fotografija poliranja</div>
+        <div class="sv-panel">
+          <div>
+            <h3>Poliranje i korekcija laka</h3>
+            <p>Ogrebotine uklonjene, sjaj vraćen.</p>
+          </div>
+          <span class="sv-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+          </span>
+        </div>
+      </a>
+      <a class="sv-card reveal" href="#usluge">
+        <div class="sv-shot">Fotografija zaštite laka</div>
+        <div class="sv-panel">
+          <div>
+            <h3>Keramička zaštita i PPF</h3>
+            <p>Dugotrajna zaštita laka od habanja.</p>
+          </div>
+          <span class="sv-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="kako-radimo">
+  <div class="wrap">
+    <div class="how-head reveal">
+      <h2>Kako radimo</h2>
+      <p>Jednostavan tok rada koji svaki put daje isti, pouzdan rezultat.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <span class="how-num">01</span>
+        <h3>Besplatna procena</h3>
+        <p>Javiš se i dobiješ brzu procenu, bez obaveze.</p>
+      </div>
+      <div class="how-step reveal">
+        <span class="how-num">02</span>
+        <h3>Pregled vozila</h3>
+        <p>Merimo stanje laka i potvrđujemo konačnu cenu.</p>
+      </div>
+      <div class="how-step reveal">
+        <span class="how-num">03</span>
+        <h3>Detailing</h3>
+        <p>Radimo precizno, panel po panel, do rezultata.</p>
+      </div>
+    </div>
+    <div class="how-shot reveal">Fotografija vozila posle tretmana</div>
   </div>
 </section>
 
@@ -1327,18 +1939,158 @@
         <div class="label">Obučenih polaznika škole</div>
       </div>
     </div>
-    <div class="video-grid">
-      <div class="video-card reveal">
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-        <span>VIDEO UTISAK KLIJENTA</span>
+    <div class="tst-card reveal">
+      <div class="tst-stars" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.5.6-5.7 5 1.7 7.4L12 18l-6.4 3.9 1.7-7.4-5.7-5 7.5-.6L12 2z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.5.6-5.7 5 1.7 7.4L12 18l-6.4 3.9 1.7-7.4-5.7-5 7.5-.6L12 2z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.5.6-5.7 5 1.7 7.4L12 18l-6.4 3.9 1.7-7.4-5.7-5 7.5-.6L12 2z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.5.6-5.7 5 1.7 7.4L12 18l-6.4 3.9 1.7-7.4-5.7-5 7.5-.6L12 2z"></path></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.5.6-5.7 5 1.7 7.4L12 18l-6.4 3.9 1.7-7.4-5.7-5 7.5-.6L12 2z"></path></svg>
       </div>
-      <div class="video-card reveal">
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-        <span>VIDEO UTISAK KLIJENTA</span>
+      <div class="tst-slides">
+        <div class="tst-slide is-active">
+          <p class="tst-quote">"Lak izgleda bolje nego kad sam kupio auto. Ogrebotine koje sam gledao godinu dana su nestale."</p>
+          <div class="tst-avatar" aria-hidden="true">MJ</div>
+          <div class="tst-name">Marko J.</div>
+          <div class="tst-role">Vlasnik Audi A6</div>
+        </div>
+        <div class="tst-slide">
+          <p class="tst-quote">"Uzeli su ceo dan samo za moj auto. Enterijer je posle mirisao kao nov."</p>
+          <div class="tst-avatar" aria-hidden="true">SP</div>
+          <div class="tst-name">Stefan P.</div>
+          <div class="tst-role">Vlasnik BMW 320d</div>
+        </div>
+        <div class="tst-slide">
+          <p class="tst-quote">"Hrom i lak na motoru su posle sezone izgledali kao pre nje. Vredi svaki dinar."</p>
+          <div class="tst-avatar" aria-hidden="true">NV</div>
+          <div class="tst-name">Nikola V.</div>
+          <div class="tst-role">Vlasnik Yamaha MT-07</div>
+        </div>
       </div>
-      <div class="video-card reveal">
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-        <span>VIDEO UTISAK KLIJENTA</span>
+      <div class="tst-dots">
+        <button type="button" class="is-active" data-tst="0" aria-label="Utisak 1"></button>
+        <button type="button" class="" data-tst="1" aria-label="Utisak 2"></button>
+        <button type="button" class="" data-tst="2" aria-label="Utisak 3"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kviz">
+  <div class="wrap">
+    <div class="quiz">
+      <div class="reveal">
+        <span class="eyebrow">Procena za minut</span>
+        <h2>Odgovori na tri koraka, javljamo se sa cenom</h2>
+        <p class="lead">Nekoliko pitanja o autu i o tome šta ti smeta. Zovemo te, predložimo tretman i kažemo cenu. Ako ti odgovara, dogovorimo termin. Bez obaveze.</p>
+        <div class="quiz-contact">
+          <div><small>Telefon</small><a href="tel:+381600000000">+381 60 000 0000</a></div>
+          <div><small>Email</small><a href="mailto:info@magna-detailing.rs">info@magna-detailing.rs</a></div>
+        </div>
+      </div>
+
+      <div class="quiz-card reveal" id="quizCard">
+        <div class="quiz-progress" id="quizProgress">
+          <span id="quizStepLabel">Korak 1 od 3</span>
+          <div class="quiz-bar"><i id="quizBar"></i></div>
+        </div>
+
+        <div class="quiz-step" id="step1">
+          <h3>Šta ti smeta na autu?</h3>
+          <p class="quiz-hint">Izaberi jednu ili više stavki.</p>
+          <div class="opts">
+            <button type="button" class="opt" data-focus="lak"><strong>Mutan lak i ogrebotine</strong><small>Poliranje i korekcija</small></button>
+            <button type="button" class="opt" data-focus="zastita"><strong>Zaštita laka</strong><small>Keramika ili PPF folija</small></button>
+            <button type="button" class="opt" data-focus="enterijer"><strong>Enterijer</strong><small>Mrlje, dlake, miris</small></button>
+            <button type="button" class="opt" data-focus="farovi"><strong>Žuti farovi</strong><small>Slabije svetlo noću</small></button>
+            <button type="button" class="opt" data-focus="motocikl"><strong>Motocikl</strong><small>Hrom, lak i zaštita</small></button>
+            <button type="button" class="opt" data-focus="prodaja"><strong>Priprema za prodaju</strong><small>Auto ide na oglas</small></button>
+          </div>
+        </div>
+
+        <div class="quiz-step" id="step2" hidden>
+          <h3>Nešto o vozilu</h3>
+          <p class="quiz-hint">Da znamo koliko posla je u pitanju.</p>
+          <div class="fields">
+            <div class="field"><label for="qModel">Marka i model</label><input type="text" id="qModel" placeholder="npr. Golf 7"></div>
+            <div class="field"><label for="qYear">Godište</label><input type="text" id="qYear" inputmode="numeric" placeholder="npr. 2016"></div>
+          </div>
+          <p class="quiz-hint" style="margin-top:22px;margin-bottom:12px;color:var(--text);font-weight:600;">Kad je lak poslednji put poliran?</p>
+          <div class="opts">
+            <button type="button" class="opt" data-state="skoro"><strong>U poslednjih godinu dana</strong><small>Lak je u redu</small></button>
+            <button type="button" class="opt" data-state="davno"><strong>Pre dve godine ili više</strong><small>Vidi se mat sjaj</small></button>
+            <button type="button" class="opt" data-state="nikad"><strong>Nikad</strong><small>Auto je uglavnom išao na perionicu</small></button>
+          </div>
+        </div>
+
+        <div class="quiz-step" id="step3" hidden>
+          <h3>Gde da te dobijemo?</h3>
+          <p class="quiz-hint">Zovemo u toku dana, radnim danima do 19h.</p>
+          <div class="fields">
+            <div class="field"><label for="qName">Ime</label><input type="text" id="qName" placeholder="Tvoje ime"></div>
+            <div class="field"><label for="qPhone">Telefon</label><input type="tel" id="qPhone" placeholder="06x xxx xxxx"></div>
+            <div class="field field--full"><label for="qNote">Napomena (opciono)</label><input type="text" id="qNote" placeholder="npr. auto stoji napolju, nema garažu"></div>
+          </div>
+        </div>
+
+        <div class="quiz-result" id="quizResult" hidden>
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto;"><circle cx="12" cy="12" r="9"></circle><path d="M8 12 L11 15 L16 9"></path></svg>
+          <h3 id="resultTitle">Hvala</h3>
+          <p id="resultText">Javljamo se na broj koji si ostavio.</p>
+          <div class="result-box">
+            <span>Predlog za tvoje vozilo</span>
+            <strong id="resultPkg">Paket korekcija</strong>
+            <p id="resultVehicle" style="font-size:14px;"></p>
+            <ul class="result-list" id="resultList"></ul>
+          </div>
+          <button type="button" class="btn btn-outline btn-wide" id="quizReset" style="margin-top:22px;">Pošalji još jedno vozilo</button>
+        </div>
+
+        <p class="quiz-err" id="quizErr">Izaberi bar jednu stavku da bismo nastavili.</p>
+
+        <div class="quiz-nav" id="quizNav">
+          <button type="button" class="btn btn-outline" id="quizBack" hidden>Nazad</button>
+          <button type="button" class="btn btn-primary" id="quizNext">Dalje</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pitanja">
+  <div class="wrap">
+    <div class="faq-head reveal">
+      <h2>Nisi našao ono što<br>te zanima?</h2>
+      <p>Pošalji nam pitanje i javljamo se u najkraćem roku.</p>
+      <a href="#kontakt" class="btn btn-dark">Postavi pitanje</a>
+    </div>
+    <div class="faq-grid">
+      <details class="faq-item reveal">
+        <summary>Kako utvrđujete stanje laka?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p>Merimo debljinu laka i pregledamo ga pod lampom, pa tek onda predlažemo tretman.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Koliko košta tretman?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p>Cena zavisi od stanja vozila i izabranog tretmana - procenu dobiješ pre nego što počnemo.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Moram li da ostavim auto ceo dan?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p>Za poliranje i zaštitu da. Tog dana radimo samo tvoje vozilo.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Koju hemiju koristite?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p>Koch-Chemie, Colourlock i Tornador - brendove čiji smo zvanični distributer.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Koliko traje keramička zaštita?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p>Zavisi od premaza i održavanja; tačan rok ti kažemo uz preporuku za negu.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Radite li i motocikle?<span class="faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></span></summary>
+        <p>Da - pranje, poliranje hroma i lakiranih površina i zaštita od korozije i UV zračenja.</p>
+      </details>
+    </div>
+    <div class="cta-banner reveal">
+      <div class="cta-banner-inner">
+        <h2>Besplatna procena vozila</h2>
+        <p>Brza i jasna cena, bez obaveze.</p>
+        <a href="#kontakt" class="btn btn-light">Postavi pitanje</a>
       </div>
     </div>
   </div>
@@ -1360,33 +2112,39 @@
 <footer>
   <div class="wrap">
     <div class="footer-grid">
-      <div>
-        <img src="assets/logo.png" alt="MAGNA Auto Detailing Studio logo" class="footer-logo">
-        <p>Profesionalni detailing studio za automobile i motocikle u Beogradu. Zvanični distributer Koch-Chemie, Colourlock i Tornador brendova.</p>
+      <div class="footer-brand">
+        <strong>MAGNA Auto Detailing Studio</strong>
+        <p>&copy; 2026 MAGNA Auto Detailing Studio. Sva prava zadržana.</p>
       </div>
       <div>
         <h4>Navigacija</h4>
         <div class="footer-links">
+          <a href="#top">Početna</a>
           <a href="#usluge">Usluge</a>
+          <a href="#rezultati">Pre i posle</a>
           <a href="#cenovnik">Cenovnik</a>
-          <a href="#brendovi">Brendovi</a>
-          <a href="#skola">Škola detailinga</a>
-          <a href="#o-nama">O nama</a>
+          <a href="#pitanja">Česta pitanja</a>
+          <a href="#kontakt">Kontakt</a>
         </div>
       </div>
       <div>
         <h4>Kontakt</h4>
         <div class="footer-links">
-          <a href="#">Beograd, Srbija</a>
-          <a href="#">+381 60 000 0000</a>
-          <a href="#">info@magna-detailing.rs</a>
+          <a href="tel:+381600000000">+381 60 000 0000</a>
+          <a href="mailto:info@magna-detailing.rs">info@magna-detailing.rs</a>
+          <span>Beograd, Srbija</span>
+          <span>Pon-Sub: 09:00 &mdash; 19:00</span>
+        </div>
+      </div>
+      <div>
+        <h4>Pravno</h4>
+        <div class="footer-links">
+          <a href="#">Politika privatnosti</a>
+          <a href="#">Uslovi korišćenja</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom wrap" style="padding-left:0;padding-right:0;">
-      <span>© 2024 MAGNA Auto Detailing Studio. Sva prava zadržana.</span>
-      <span>Beograd, Srbija</span>
-    </div>
+    <div class="footer-mark" aria-hidden="true">MAGNA</div>
   </div>
 </footer>
 
@@ -1423,6 +2181,141 @@
     range.addEventListener('input', sync);
     sync();
   });
+
+  // Utisci - slider
+  const tstCard = document.querySelector('.tst-card');
+  if (tstCard) {
+    const slides = tstCard.querySelectorAll('.tst-slide');
+    const dots = tstCard.querySelectorAll('.tst-dots button');
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const i = Number(dot.dataset.tst);
+        slides.forEach((sl, n) => sl.classList.toggle('is-active', n === i));
+        dots.forEach((d, n) => d.classList.toggle('is-active', n === i));
+      });
+    });
+  }
+
+  // Kviz - procena za minut
+  (function(){
+    var card = document.getElementById('quizCard');
+    if (!card) return;
+
+    var state = { focus: [], model:'', year:'', paint:null, name:'', phone:'', note:'' };
+    var step = 1;
+    var stepEls = [null, document.getElementById('step1'), document.getElementById('step2'), document.getElementById('step3')];
+    var bar = document.getElementById('quizBar');
+    var label = document.getElementById('quizStepLabel');
+    var back = document.getElementById('quizBack');
+    var next = document.getElementById('quizNext');
+    var err = document.getElementById('quizErr');
+    var nav = document.getElementById('quizNav');
+    var progress = document.getElementById('quizProgress');
+    var result = document.getElementById('quizResult');
+
+    card.querySelectorAll('[data-focus]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var val = btn.getAttribute('data-focus');
+        var i = state.focus.indexOf(val);
+        if (i > -1){ state.focus.splice(i,1); btn.classList.remove('is-on'); }
+        else { state.focus.push(val); btn.classList.add('is-on'); }
+        err.classList.remove('is-on');
+      });
+    });
+
+    card.querySelectorAll('[data-state]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        card.querySelectorAll('[data-state]').forEach(function(b){ b.classList.remove('is-on'); });
+        btn.classList.add('is-on');
+        state.paint = btn.getAttribute('data-state');
+        err.classList.remove('is-on');
+      });
+    });
+
+    function show(n){
+      step = n;
+      for (var i = 1; i <= 3; i++){ stepEls[i].hidden = (i !== n); }
+      label.textContent = 'Korak ' + n + ' od 3';
+      bar.style.width = (n * 33.34) + '%';
+      back.hidden = (n === 1);
+      next.textContent = (n === 3) ? 'Pošalji zahtev' : 'Dalje';
+      err.classList.remove('is-on');
+    }
+
+    function fail(msg){
+      err.textContent = msg;
+      err.classList.add('is-on');
+    }
+
+    function recommend(){
+      var f = state.focus;
+      var has = function(k){ return f.indexOf(k) > -1; };
+      if (has('zastita') || state.paint === 'nikad'){
+        return { name:'Keramička zaštita', items:['Dvofazno poliranje laka','Keramički premaz ili PPF folija','Zaštita stakala i felni','Uputstvo za održavanje'] };
+      }
+      if (has('lak') || state.paint === 'davno' || has('prodaja')){
+        return { name:'Korekcija laka', items:['Pranje i dekontaminacija','Jednofazno poliranje laka','Vosak preko korekcije','Kondicioniranje kože i plastike'] };
+      }
+      if (has('enterijer')){
+        return { name:'Detailing enterijera', items:['Dubinsko usisavanje i pranje tapacirunga','Uklanjanje dlaka i mirisa','Tretman kože Colourlock proizvodima','Dezinfekcija ventilacije'] };
+      }
+      if (has('motocikl')){
+        return { name:'Detailing motocikla', items:['Pranje i dekontaminacija','Poliranje hroma i lakiranih površina','Zaštita od korozije i UV zračenja','Priprema za sezonu'] };
+      }
+      return { name:'Premium pranje', items:['Ručno pranje dvema kofama','Dekontaminacija laka','Zaštita guma i felni','Traje oko 2 sata'] };
+    }
+
+    next.addEventListener('click', function(){
+      if (step === 1){
+        if (state.focus.length === 0){ fail('Izaberi bar jednu stavku da bismo nastavili.'); return; }
+        show(2);
+        return;
+      }
+      if (step === 2){
+        state.model = document.getElementById('qModel').value.trim();
+        state.year = document.getElementById('qYear').value.trim();
+        if (!state.model){ fail('Upiši marku i model vozila.'); return; }
+        if (!state.paint){ fail('Izaberi kad je lak poslednji put poliran.'); return; }
+        show(3);
+        return;
+      }
+      state.name = document.getElementById('qName').value.trim();
+      state.phone = document.getElementById('qPhone').value.trim();
+      state.note = document.getElementById('qNote').value.trim();
+      if (!state.name){ fail('Upiši ime da znamo kako da ti se obratimo.'); return; }
+      if (state.phone.replace(/\D/g,'').length < 8){ fail('Upiši telefon na koji možemo da te dobijemo.'); return; }
+
+      var rec = recommend();
+      document.getElementById('resultTitle').textContent = 'Hvala, ' + state.name + '.';
+      document.getElementById('resultText').textContent = 'Javljamo se na ' + state.phone + ' u toku dana, sa cenom i slobodnim terminom.';
+      document.getElementById('resultPkg').textContent = rec.name;
+      document.getElementById('resultVehicle').textContent = state.model + (state.year ? ', godište ' + state.year : '');
+      var list = document.getElementById('resultList');
+      list.innerHTML = '';
+      rec.items.forEach(function(t){
+        var li = document.createElement('li');
+        li.textContent = t;
+        list.appendChild(li);
+      });
+
+      stepEls[1].hidden = true; stepEls[2].hidden = true; stepEls[3].hidden = true;
+      nav.hidden = true; progress.hidden = true; err.classList.remove('is-on');
+      result.hidden = false;
+      card.scrollIntoView({ behavior:'smooth', block:'center' });
+    });
+
+    back.addEventListener('click', function(){ if (step > 1) show(step - 1); });
+
+    document.getElementById('quizReset').addEventListener('click', function(){
+      state = { focus: [], model:'', year:'', paint:null, name:'', phone:'', note:'' };
+      card.querySelectorAll('.opt').forEach(function(b){ b.classList.remove('is-on'); });
+      ['qModel','qYear','qName','qPhone','qNote'].forEach(function(id){ document.getElementById(id).value = ''; });
+      result.hidden = true; nav.hidden = false; progress.hidden = false;
+      show(1);
+    });
+
+    show(1);
+  })();
 
   // Scroll reveal
   if ('IntersectionObserver' in window) {
