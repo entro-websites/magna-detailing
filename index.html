@@ -630,12 +630,29 @@
     flex:0 0 auto;
     width:40px;
     height:40px;
+    padding:0;
+    border:none;
     border-radius:12px;
     background:var(--bg-off);
     display:flex;
     align-items:center;
     justify-content:center;
+    cursor:pointer;
     transition:background 0.2s ease;
+  }
+  .sv-arrow svg{transition:transform 0.25s ease;}
+  .sv-arrow[aria-expanded="true"]{background:var(--accent-soft);}
+  .sv-arrow[aria-expanded="true"] svg{stroke:var(--accent);transform:rotate(90deg);}
+  .sv-more{
+    margin-top:12px;
+    background:#fff;
+    border-radius:12px;
+    padding:16px;
+  }
+  .sv-more p{
+    font-size:0.88rem;
+    margin:0;
+    max-width:none;
   }
   .sv-arrow svg{
     width:18px;
@@ -758,64 +775,115 @@
   .service-card h3{font-size:1.1rem;margin-bottom:10px;}
   .service-card p{font-size:0.94rem;}
 
-  /* PRICING */
-  .pricing-grid{
+  /* PRICING - PAKETI */
+  .pkg-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:24px;
+    gap:20px;
+    align-items:stretch;
   }
-  .price-card{
+  .pkg{
     background:#fff;
     border:1px solid rgba(26,26,26,0.1);
     border-radius:var(--radius-card);
-    padding:32px 28px;
+    padding:30px 26px;
     display:flex;
     flex-direction:column;
-    transition:box-shadow 0.25s ease, transform 0.25s ease;
+    transition:transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
-  .price-card:hover{box-shadow:0 20px 40px -20px rgba(26,26,26,0.18);transform:translateY(-4px);}
-  .price-card.featured{
+  .pkg:hover{
+    transform:translateY(-4px);
+    border-color:var(--accent);
+    box-shadow:0 20px 40px -20px rgba(26,26,26,0.18);
+  }
+  .pkg--feat{
     border-color:var(--accent);
     background:linear-gradient(180deg,#fff 0%, var(--accent-soft) 260%);
-    position:relative;
   }
-  .price-card .tag{
-    position:absolute;
-    top:-13px;
-    right:24px;
-    background:var(--accent);
-    color:#fff;
+  @media (min-width:1081px){
+    .pkg--feat{
+      margin-top:-18px;
+      margin-bottom:-18px;
+      padding-top:48px;
+      padding-bottom:48px;
+    }
+  }
+  .pkg-top{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .pkg-top h3{font-size:1.15rem;}
+  .pkg-tag{
     font-family:'Montserrat',sans-serif;
+    font-size:11px;
     font-weight:700;
-    font-size:0.72rem;
-    letter-spacing:0.06em;
+    letter-spacing:0.12em;
     text-transform:uppercase;
-    padding:5px 12px;
-    border-radius:999px;
+    color:#fff;
+    background:var(--accent);
+    padding:4px 9px;
+    border-radius:4px;
   }
-  .price-card h3{font-size:1.15rem;margin-bottom:6px;}
-  .price-card .price{
+  .pkg-sub{
+    color:var(--text-muted);
+    font-size:14px;
+    margin-top:6px;
+  }
+  .pkg-price{
     font-family:'Montserrat',sans-serif;
     font-weight:800;
-    font-size:1.8rem;
+    font-size:2rem;
     color:var(--accent-dark);
-    margin-bottom:18px;
+    margin-top:18px;
   }
-  .price-card .price span{font-size:0.95rem;font-weight:600;color:var(--text-faint);}
-  .price-list{margin-bottom:26px;flex-grow:1;}
-  .price-list li{
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-    font-size:0.92rem;
-    color:var(--text-muted);
-    margin-bottom:12px;
-  }
-  .price-list li svg{width:16px;height:16px;stroke:var(--accent);flex-shrink:0;margin-top:3px;}
-  .price-note{
-    margin-top:20px;
-    font-size:0.88rem;
+  .pkg-price small{
+    font-family:'Open Sans',sans-serif;
+    font-size:0.85rem;
+    font-weight:600;
     color:var(--text-faint);
+    margin-left:6px;
+  }
+  .pkg-list{
+    margin-top:20px;
+    margin-bottom:26px;
+    display:grid;
+    gap:11px;
+  }
+  .pkg-list li{
+    display:flex;
+    gap:11px;
+    font-size:14.5px;
+    color:var(--text-muted);
+  }
+  .pkg-list svg{flex-shrink:0;margin-top:4px;}
+  .pkg .btn{margin-top:auto;}
+  .extras{
+    margin-top:36px;
+    padding-top:26px;
+    border-top:1px solid rgba(26,26,26,0.08);
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+  }
+  .extras strong{
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    margin-right:6px;
+  }
+  .extras span{
+    border:1px solid rgba(26,26,26,0.12);
+    border-radius:100px;
+    padding:7px 15px;
+    font-size:13.5px;
+    color:var(--text);
+    background:#fff;
   }
 
   /* BRANDS */
@@ -860,7 +928,7 @@
     display:grid;
     grid-template-columns:1.1fr 1fr;
     gap:56px;
-    align-items:center;
+    align-items:start;
     position:relative;
     z-index:2;
   }
@@ -870,7 +938,6 @@
     display:flex;
     gap:32px;
     margin-top:30px;
-    margin-bottom:32px;
   }
   .school-fact .num{
     font-family:'Montserrat',sans-serif;
@@ -883,6 +950,7 @@
     color:rgba(255,255,255,0.65);
   }
   .school-list{display:flex;flex-direction:column;gap:16px;}
+  .school-list + .btn{margin-top:32px;}
   .school-list li{
     display:flex;
     gap:12px;
@@ -1456,7 +1524,7 @@
     .how-step{padding-left:0;padding-right:0;}
     .how-step + .how-step::before{display:none;}
     .services-grid{grid-template-columns:repeat(2,1fr);}
-    .pricing-grid{grid-template-columns:1fr;}
+    .pkg-grid{grid-template-columns:1fr;}
     .brands-row{grid-template-columns:1fr;}
     .school-grid{grid-template-columns:1fr;gap:36px;}
     .school{padding:44px 28px;}
@@ -1704,30 +1772,36 @@
       <a href="#usluge" class="btn btn-dark">Pogledaj usluge</a>
     </div>
     <div class="sv-grid">
-      <a class="sv-card reveal" href="#usluge">
+      <article class="sv-card reveal">
         <div class="sv-shot">Fotografija poliranja</div>
         <div class="sv-panel">
           <div>
             <h3>Poliranje i korekcija laka</h3>
             <p>Ogrebotine uklonjene, sjaj vraćen.</p>
           </div>
-          <span class="sv-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
-          </span>
+          <button type="button" class="sv-arrow" aria-expanded="false" aria-controls="sv-more-1" aria-label="Prikaži više o usluzi Poliranje i korekcija laka">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+          </button>
         </div>
-      </a>
-      <a class="sv-card reveal" href="#usluge">
+        <div class="sv-more" id="sv-more-1" hidden>
+          <p>Prvo merimo debljinu laka i pregledamo ga pod lampom, pa biramo jednofaznu ili dvofaznu korekciju. Mašinski, panel po panel, uklanjamo mikroogrebotine i holograme i vraćamo dubinu boje. Radi se Koch-Chemie pastama.</p>
+        </div>
+      </article>
+      <article class="sv-card reveal">
         <div class="sv-shot">Fotografija zaštite laka</div>
         <div class="sv-panel">
           <div>
             <h3>Keramička zaštita i PPF</h3>
             <p>Dugotrajna zaštita laka od habanja.</p>
           </div>
-          <span class="sv-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
-          </span>
+          <button type="button" class="sv-arrow" aria-expanded="false" aria-controls="sv-more-2" aria-label="Prikaži više o usluzi Keramička zaštita i PPF">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+          </button>
         </div>
-      </a>
+        <div class="sv-more" id="sv-more-2" hidden>
+          <p>Posle korekcije nanosimo keramički premaz koji lak štiti do 24 meseca, ili PPF foliju na haubu, branik i retrovizore. Uz tretman dobijaš uputstvo za održavanje i preporuku hemije za kućnu negu.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -1802,48 +1876,63 @@
 <section id="cenovnik" class="section-off">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Cenovnik</span>
-      <h2>Jasne cene, bez iznenađenja</h2>
-      <p>Konačna cena zavisi od stanja i veličine vozila. Ovo su okvirne cene od kojih krećemo razgovor.</p>
+      <span class="eyebrow">Paketi</span>
+      <h2>Tri paketa, bira se prema stanju laka</h2>
+      <p>Ako nisi siguran koji ti treba, popuni kviz ili javi godište i kad je auto poslednji put poliran.</p>
     </div>
-    <div class="pricing-grid">
-      <div class="price-card reveal">
-        <h3>Premium pranje</h3>
-        <div class="price">od 3.000 <span>din</span></div>
-        <ul class="price-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Ručno pranje dvema kofama</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Dekontaminacija laka</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Čišćenje felni i guma</li>
+    <div class="pkg-grid">
+      <article class="pkg reveal">
+        <div class="pkg-top"><h3>Premium pranje</h3></div>
+        <div class="pkg-sub">Kad auto treba samo da zablista</div>
+        <div class="pkg-price">od 3.000<small>din</small></div>
+        <ul class="pkg-list">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Ručno pranje dvema kofama</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Dekontaminacija laka</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Čišćenje felni i guma</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Traje oko 2 sata</li>
         </ul>
-      </div>
-      <div class="price-card featured reveal">
-        <span class="tag">Najtraženije</span>
-        <h3>Poliranje i keramika</h3>
-        <div class="price">od 35.000 <span>din</span></div>
-        <ul class="price-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Korekcija laka jednom ili dve faze</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Keramički premaz Koch-Chemie</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Zaštita do 24 meseca</li>
+        <a class="btn btn-outline btn-wide" href="#kviz">Zakaži ovaj paket</a>
+      </article>
+      <article class="pkg pkg--feat reveal">
+        <div class="pkg-top"><h3>Poliranje i keramika</h3><span class="pkg-tag">Najtraženije</span></div>
+        <div class="pkg-sub">Kad lak treba vratiti u red</div>
+        <div class="pkg-price">od 35.000<small>din</small></div>
+        <ul class="pkg-list">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Sve iz premium pranja</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Korekcija laka u jednoj ili dve faze</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Keramički premaz Koch-Chemie</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Zaštita do 24 meseca</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Traje ceo dan</li>
         </ul>
-      </div>
-      <div class="price-card reveal">
-        <h3>PPF folija</h3>
-        <div class="price">na upit</div>
-        <ul class="price-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Zaštita haube, branika i retrovizora ili celog vozila</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Cena zavisi od modela i pokrivenosti</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Ponuda posle pregleda vozila</li>
+        <a class="btn btn-primary btn-wide" href="#kviz">Zakaži ovaj paket</a>
+      </article>
+      <article class="pkg reveal">
+        <div class="pkg-top"><h3>PPF folija</h3></div>
+        <div class="pkg-sub">Zaštita na duže staze</div>
+        <div class="pkg-price">Na upit</div>
+        <ul class="pkg-list">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Sve iz paketa poliranje</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Hauba, branik i retrovizori ili celo vozilo</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Cena zavisi od modela i pokrivenosti</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 L10 17 L19 7"></path></svg>Ponuda posle pregleda vozila</li>
         </ul>
-      </div>
+        <a class="btn btn-outline btn-wide" href="#kviz">Zakaži ovaj paket</a>
+      </article>
     </div>
-    <p class="price-note">Detailing enterijera od 6.000 din, detailing motocikala od 8.000 din. Tačnu cenu dobijaš posle kratkog pregleda vozila.</p>
+    <div class="extras">
+      <strong>Dodatno po želji</strong>
+      <span>Detailing enterijera od 6.000 din</span>
+      <span>Detailing motocikala od 8.000 din</span>
+      <span>Tretman kože Colourlock</span>
+      <span>Dezinfekcija ventilacije</span>
+      <span>Priprema za prodaju</span>
+    </div>
   </div>
 </section>
 
 <section id="brendovi">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow">Zvanični distributer</span>
       <h2>Radimo isključivo sa proverenim brendovima</h2>
       <p>Nema improvizacije. Koristimo i prodajemo profesionalnu hemiju i opremu koju znamo napamet.</p>
     </div>
@@ -1883,7 +1972,6 @@
               <div class="label">Obučenih polaznika</div>
             </div>
           </div>
-          <a href="#kontakt" class="btn btn-primary">Prijavi se za kurs detailinga</a>
         </div>
         <div>
           <ul class="school-list">
@@ -1892,6 +1980,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Sertifikat po završetku kursa</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Grupe malog broja polaznika, direktan rad sa instruktorom</li>
           </ul>
+          <a href="#kontakt" class="btn btn-primary">Prijavi se za kurs detailinga</a>
         </div>
       </div>
     </div>
@@ -1902,7 +1991,6 @@
   <div class="wrap about-grid">
     <div class="placeholder reveal" role="img" aria-label="Fotografija enterijera studija MAGNA">FOTOGRAFIJA STUDIJA</div>
     <div class="about-text reveal">
-      <span class="eyebrow">O nama</span>
       <h2>Studio za ljude kojima je stalo do vozila</h2>
       <p>MAGNA Auto Detailing Studio radi u Beogradu i bavi se isključivo detailingom automobila i motocikala. Nismo autoperionica koja usput nudi poliranje - ovo nam je jedini posao.</p>
       <p>Kao zvanični distributer Koch-Chemie, Colourlock i Tornador brendova, koristimo istu hemiju i opremu koju preporučujemo klijentima za kućnu negu. Kroz MAGNA Detailing School prenosimo znanje dalje, drugim ljudima koji žele da rade ovaj posao profesionalno.</p>
@@ -2099,7 +2187,6 @@
 <section id="kontakt">
   <div class="wrap">
     <div class="cta-close reveal">
-      <h2>Zakaži termin ili se prijavi za kurs</h2>
       <p>Javi nam se sa modelom vozila i onim što te najviše smeta na njemu. Za školu, javi se za sledeći slobodan termin grupe.</p>
       <div class="btn-row">
         <a href="#" class="btn btn-light">Zakaži termin za detailing</a>
@@ -2316,6 +2403,17 @@
 
     show(1);
   })();
+
+  // Premium nega - vise o usluzi
+  document.querySelectorAll('.sv-arrow').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!panel) return;
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+    });
+  });
 
   // Scroll reveal
   if ('IntersectionObserver' in window) {
