@@ -577,6 +577,7 @@
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:28px;
+    align-items:start;
   }
   .sv-card{
     display:block;
@@ -964,6 +965,7 @@
     font-size:0.85rem;
     color:rgba(255,255,255,0.65);
   }
+  .school-side{margin-top:44px;}
   .school-list{display:flex;flex-direction:column;gap:16px;}
   .school-list + .btn{margin-top:32px;}
   .school-list li{
@@ -1487,6 +1489,7 @@
     .svc-grid{grid-template-columns:repeat(2,1fr);}
     .pkg-grid{grid-template-columns:1fr;}
     .school-grid{grid-template-columns:1fr;gap:36px;}
+    .school-side{margin-top:0;}
     .school{padding:44px 28px;}
     .stats-row{grid-template-columns:1fr 1fr;}
     .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
@@ -1922,7 +1925,7 @@
             </div>
           </div>
         </div>
-        <div>
+        <div class="school-side">
           <ul class="school-list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Praktičan rad na realnim vozilima, ne samo teorija</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Rad sa Koch-Chemie i Colourlock proizvodima</li>
